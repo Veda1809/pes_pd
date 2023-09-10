@@ -166,9 +166,9 @@
   - **Power planning** also known as power distribution network (PDN) design, focuses on the distribution and management of power and ground connections within the chip. It ensures that all components receive stable power supplies and that power is efficiently distributed throughout the chip.
  
 + **Placment**
- - It refers to the process of determining the physical locations of individual components, such as logic gates, flip-flops, memory cells, and other elements, on the semiconductor die or chip.
- - **Global placement** involves determining approximate positions or locations for major functional blocks, macros, and components on the semiconductor die or chip.
- - **Detailed placement** also known as fine-grained placement, is a critical step in the physical design of integrated circuits (ICs) that follows global placement.
+  - It refers to the process of determining the physical locations of individual components, such as logic gates, flip-flops, memory cells, and other elements, on the semiconductor die or chip.
+  - **Global placement** involves determining approximate positions or locations for major functional blocks, macros, and components on the semiconductor die or chip.
+  - **Detailed placement** also known as fine-grained placement, is a critical step in the physical design of integrated circuits (ICs) that follows global placement.
 During the detailed placement phase, the positions of individual components, such as logic gates, flip-flops, and memory cells, are determined with high precision within the semiconductor die or chip.
 
 + **Clock Tree Synthesis**
@@ -190,5 +190,76 @@ During the detailed placement phase, the positions of individual components, suc
 <details>
 <summary> Introduction to OpenLane and Strive Chipsets </summary>
 
++ **OpenLane**
+  - OpenLANE is an opensource tool or flow used for opensource tape-outs.
+  - The OpenLANE flow comprises a variety of tools such as Yosys, ABC, OpenSTA, Fault, OpenROAD app, Netgen and Magic which are used to harden chips and macros, i.e. generate final GDSII from the design RTL. The primary goal of OpenLANE is to produce clean GDSII with no human intervention.
+  -  OpenLANE has been tuned to function for the Google-Skywater130 Opensource Process Design Kit.
+
++ **Strive Chipsets**
+<p align="center">
+  <img width="239" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/2758ce5f-9301-4876-929e-72d93de298f6">
+</p>
+<p align="center">
+  Fig 2. Strive SoC Family
+</p>
+
+</details>
+
+<details>
+<summary> Introduction to OpenLane Detailed ASIC Design Flow </summary>
+
+
+<p align="center">
+  <img width="584" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8d1647a2-0d27-46a6-b9ad-e9f59984401a">
+</p>
+
+<p align="center">
+  Fig 3. OpenLane ASIC Flow
+</p>
+
++ **OpenLane Regression Testing**
+ - Regression testing in the context of OpenLane refers to the process of running a set of predefined test cases or scripts on the OpenLane design automation framework to ensure that recent changes or updates to the framework have not introduced new bugs or regressions.
+
++ **Design for Test(DFT)**
+  - Scan Insertion
+  - Automatic Test Pattern Generation(ATPG)
+  - Test Patterns Compaction
+  - Fault Coverage
+  - Fault Simulation
   
++ **Physical Implementation** (automated PnR(Place and Route)) (OpenRoad)
+  - Floor/Power Planning
+  - End Decoupling Capacitors and Tap cells insertion
+  - Placement : Global and Detailed
+  - Post placmnet optimisation
+  - Clock Tree synthesis
+  - Routing : Global and Detailed
+
+ + **Logic Equivalence Check** (yosys)
+   - Everytime the netlist is modified, verification must be performed.
+   - LEC is used to formally confirm that the function did not change after modifying the netlist.
+  
++ **Dealing with antenna rules violations**
+  - When a metal wire segment is fabricated, it can act as an antenna.
+  - Reactive ion etching causes charge to accumulate on the wire.
+  - Transistor gates can be damaged during fabrication.
+  - Two solutions:
+    + Bridging attaches a higher layer intermediary.
+    + Add antenna diode cell to leak away charges.
+  - We took a preventive approach:
+    + Add a fake antenna diode next to every cell input after placement.
+    + Run the antenna check(**Magic**) on the routed layout
+    + If the checker reports a violation on the cell input pin, replace the fake diode cell by a real one.
+   
++ **Static Timing Analysis**
+  - Static Timing Analysis (STA) is a critical step in the design and verification of integrated circuits (ICs) and other digital systems.
+  - It is used to ensure that a digital design meets its required timing constraints and operates correctly within a given clock frequency.
+  - STA is performed during the physical design phase of chip development and is crucial for assessing and optimizing the performance and reliability of digital systems.
+ 
++ **Physical Verification**
+  - **LVS (Layout vs Schematic)** is a process that ensures that the physical layout of a chip or circuit matches its intended logical or schematic representation.
+  - **DRC (Design Rules Checking)** is a process that ensures that the layout of a chip or circuit adheres to the specific design rules and constraints defined by the semiconductor manufacturing process. 
+  - **Magic** is used for design rules checking and SPICE extraction from Layout.
+  - **Magic** and **Netgen** are used for LVS
+
 </details>

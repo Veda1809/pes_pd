@@ -263,3 +263,160 @@ During the detailed placement phase, the positions of individual components, suc
   - **Magic** and **Netgen** are used for LVS
 
 </details>
+
+## Open-Source EDA Tools
+<details>
+<summary> OpenLane Directory Structure </summary>
+
++ PDK used in this workshop is Skywater 130nm PDK and OpenLane is built around this PDK.
+<p align="center">'
+  <img width="580" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8d8a1f07-abbc-46e6-8616-ff13da29ff3b">
+</p>
+<p align="center">
+  Fig 1.
+</p>
+
++ **skywater-pdk** contains all the PDK related files.
++ **open_pdks** contains all the scripts and files that convert these foundry level PDKS to be compatible with the open-source EDA tools
++ **sky130A** is made compatible with our open-source environment.
+
+<p align="center">
+  <img width="644" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8dd1e174-9c23-4dcf-a90d-56e5179934be">
+</p>
+<p align="center">
+  Fig 2.
+</p>
+
++ **libs.ref** seems specific to technology.
++ **libs.tech** seems specific to the tool.
+
+<p align="center">
+  <img width="744" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/cc73e63f-4629-4b99-8047-e314f9008992">
+</p>
+<p align="center">
+  Fig 3.
+</p>
+
++ **sky130_fd_sc_hd** has all the technology files.
+</details>
+
+<details>
+<summary> Design Preparation Step </summary>
+
++ To invoke OpenLane
+
+<p align="center">
+  <img width="536" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8b8830dd-7aa4-4e8a-a5ae-51635f8ce4c1">
+</p>
+<p align="center">
+  Fig 4.
+</p>
+
++ Under **Designs** folder, we are going to use **picorv32a**.
++ **src** files contains verilog and sdc file.
+<p align="center">
+ <img width="697" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4f26eb47-4c0f-4e33-8775-f1144e2cd09b">
+</p>
+<p align="center">
+  Fig 5.
+</p>
+
++ `less config.tcl`
+
+<p align="center">
+<img width="763" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6200069a-9833-4036-80df-4f7d48a42a3a">
+</p>
+<p align="center">
+Fig 6.
+</p>
+
++ We are going to prepare the design.
++ `prep -design picorv32a`.
+<p align="center">
+  <img width="904" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/81d463c2-4fe6-4a44-b52b-9ac65c54c718">
+</p>
+<p align="center">
+  Fig 7.
+</p>
+</details>
+
+<details>
+<summary> Review Files after Design Prep and Run Synthesis </summary>
+
+<p align="center">
+<img width="781" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/d688e5cc-0d8c-47a5-8a98-4ec60a20933c">
+</p>
+<p align="center">
+  Fig 8.
+</p>
+
+<p align="center">
+<img width="869" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/c69a48e8-1d1a-447e-844d-a349b8f20c38">
+</p>
+<p align="center">
+  Fig 9.
+</p>
+
+<p align="center">
+<img width="841" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bb4a57cb-a9a1-4ec4-9719-cbab4f6e3b7b">
+</p>
+<p align="center">
+  Fig 10.
+</p>
+
++ `%run_synthesis`
+
+<p align="center">
+  <img width="716" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/fdde08ee-bab4-49ba-8c62-7597234aa04c">
+</p>
+<p align="center">
+  Fig 11.
+</p>
+
+</details>
+
+<details>
+<summary> OpenLane Project Git Link Description </summary>  
+
++ To know more about openlane
+
+https://github.com/efabless/openlane2
+
+</details>
+
+<details>
+<summary> Steps to Characterize Synthesis Results </summary>
+
++ To calculate the clock ratio, we need
+  - the number of D Flipflops = 1613
+  - the number of cells = 14876
++ The clock ratio is dff/cells = 0.108
+<p align="center">
+<img width="311" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/07f50ebb-7621-4f21-a697-d847c1cb4857">
+</p>
+<p align="center">
+  Fig 12.
+</p>
+
++ To view the synthesised netlist
+
+`less picorv32a.synthesis.v`
+
+<p align="center">
+  <img width="809" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/f5017424-2fec-4eb6-b89c-1f42982afb80">
+</p>
+<p align="center">
+  Fig 13.
+</p>
+
++ To view the actual statistical synthesis report
+
+`less 1-yosys_4.stat.rpt`
+<p align="center">
+<img width="223" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/b92a2e88-2ad1-48e1-bb0f-1a972ff6d3cc">
+</p>
+<p align="center">
+  Fig 14.
+</p>
+
+</details>

@@ -17,7 +17,33 @@
   - Review Files after Design Prep and Run Synthesis
   - OpenLane Project Git Link Description
   - Steps to Characterize Synthesis Results
- 
+
+ ## DAY 2
+ **Good Floorplan vs Bad Floorplan and Introduction to Library Cells
++ [Chip Floorplanning Considerations](#chip-floorplanning-considerations)
+  - Utilisation Factor and Aspect Ratio
+  - Concept of Pre-placed Cells
+  - De-coupling Capacitors
+  - Power Planning
+  - Pin Placement and Logical Cell Placement Blockage
+  - Steps to run Floorplan using OpenLane
+  - Review Floorplan Files and Steps to View Floorplan
+  - Review Floorplan Layout in Magic
++ [Library Binding and Placement](#library-binding-and-placement)
+  - Netlist Binding and intial Place Design
+  - Optimise Placement using Estimated Wire-Length and Capacitance
+  - Final Placement Optimisation
+  - Need for Libraries and Characterization
+  - Congestion aware Placement using RePLAce
++ [Cell Design and Characterization Flows](#cell-design-and-characterization-flow)
+  - Inputs for cell design flow
+  - Circuit Design Step
+  - Layout Design Step
+  - Typical Characterization Flow
++ [General Timing Characterisation Parameters](#general-timing-characterisation-parameters)
+  - Timing Threshold Definitions
+  - Propagation Delay and Transition Time
+
 # Day-1
 ## How to Talk to Computers
 <details>
@@ -417,6 +443,107 @@ https://github.com/efabless/openlane2
 </p>
 <p align="center">
   Fig 14.
+</p>
+
+</details>
+
+# Day-2
+## Chip Floorplanning Considerations
+<details>
+<summary> Utilisation Factor and Aspect Ratio </summary>
+
++ Begin with a netlist.
++ Convert the symbols into physical dimensions.
++ Calculate the area occupied by the netlist on a silicon wafer.
++ Place all the logical cells inside the core.
++ If all the logical cells occupy the complete area of the area, then the utilisation is 100%.
++ We can calculate the utilisation factor and the aspect ratio by the formulae given below:
+
+<p align="center">
+  <img width="227" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/34bdb376-7176-49e2-a063-f2a4e134c73b">
+</p>
+<p align="center">
+  Fig 1. Formulae
+</p>
+
+</details>
+
+<details>
+<summary> Concept of Pre-placed Cells </summary>
+
++ Consider a combinational logic which is converted into netlist
+<p align="center">
+  <img width="450" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/32a474db-664f-4c2a-a84b-f7274c2470b4">
+</p>
+<p align="center">
+  Fig 2.
+</p>
+
++ Cut the circuit into two parts and separate them out.
+<p align="center">
+  <img width="530" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/47c738d0-e371-499d-9c5f-1128cdfbce4c">
+</p>
+<p align="center">
+  Fig 3.
+</p>
+
++ Extend the IO pins
+<p align="center">
+  <img width="287" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4cffdcd0-7b68-4396-bf39-9ffe31a7147c">
+</p>
+<p align="center">
+  Fig 4.
+</p>
+
++ Black box the boxes
+<p align="center">
+<img width="278" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8e05e87b-e1e4-436f-842b-d348dbb2bdef">
+</p>
+<p align="center">
+  Fig 5.
+</p>
+
++ Separate the black boxes as two different IPs or modules
+<p align="center">
+<img width="426" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/85fe19b7-05c7-44df-a4f3-a5d3382b850f">
+</p>
+<p align="center">
+  Fig 6.
+</p>
+
++ The arrangement of these IPs in the chip is referred as **Floorplanning**.
++ These IPs/blocks have user-defined locations and hence are placed in the cell before automated placement-and-routing and are called as **pre-placed-cells**.
++ Automated placement and routing tools place the remaining logical cells in the design onto the chip.
+</details>
+
+<details>
+<summary> De-coupling Capacitors </summary>  
+
++ Define locations for pre-placed cells.
++ Surround the cells with de-coupling capacitors.
++ Decoupling capacitors, also known as bypass capacitors or noise-reduction capacitors, are electronic components used in electronic circuits to stabilize and improve the performance of integrated circuits (ICs) and other semiconductor devices.
++ They are a vital part of circuit design, especially in digital and mixed-signal electronics.
++ When a circuit is powered, especially in digital circuits where there are rapid transitions between logic states, the current demand can change rapidly. Decoupling capacitors are placed close to the power pins of ICs, such as microcontrollers or processors, to counteract these rapid changes.
+
+<p align="center">
+  <img width="413" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/366cbede-bc0a-4a6d-bcc6-f63434adfff7">
+</p>
+<p align="center">
+  Fig 7.
+</p>
+
+</details>
+
+<details>
+<summary> Power Planning </summary>  
++ Power planning refers to the process of strategically managing and distributing electrical power within a circuit or system to ensure reliable and efficient operation.
++ Effective power planning is essential in modern electronics to meet performance, power consumption, and thermal constraints. 
+
+<p align="center">
+  <img width="518" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/a173fa1b-ecf1-49a6-9389-bd8d74cdd340">
+</p>
+<p align="center">
+  Fig 8.
 </p>
 
 </details>

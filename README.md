@@ -547,3 +547,130 @@ https://github.com/efabless/openlane2
 </p>
 
 </details>
+
+<details>
+<summary> Pin Placement and Logical Cell Placement Blockage </summary>
+
+**Pin Placment**
++ Pin placement, also known as I/O (Input/Output) placement, is a crucial step in the physical design of an integrated circuit (IC).
++ It involves determining the locations and positions of input and output pins on the chip's package or die.
++ Proper pin placement is essential to ensure that the IC can interface with the external world effectively, meet performance requirements, and adhere to manufacturability constraints.
+
+<p align="center">
+  <img width="342" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1f7b19e7-addd-4188-b7d7-98bdc9b9a50e">
+</p>
+<p align="center">
+  Fig 9. Circuit Example
+</p>
+
+<p align="center">
+  <img width="419" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/aab16f1d-6deb-4619-8a14-4311f916b872">
+</p>
+<p align="center">
+  Fig 10. Pin placement for the Circuit
+</p>
+
+**Logical Cell Placement Blockage**
++ Logical cell placement blockage, often referred to as blockage constraints or blockage regions, is a concept used in the physical design of integrated circuits (ICs).
++ Blockage constraints are used to restrict or reserve specific areas of the chip's layout for various purposes, such as accommodating specialized circuitry, ensuring signal integrity, or meeting manufacturing requirements.
+
+<p align="center">
+  <img width="446" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/07e33231-302b-47eb-a400-d7796c51adb8">
+</p>
+<p align="center">
+  Fig 11. Logical Cell Placement Blockage for the Circuit
+</p>
+
+</details>
+
+<details>
+<summary> Steps to run Floorplan using OpenLane </summary>
+
++ `less floorplan.tcl`
+<p align="center">
+<img width="230" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/882a9fd5-5338-43f8-8395-0de6aec6669a">
+</p>
+<p align="center">
+  Fig 12.
+</p>
+
++ `less config.tcl`
+<p align="center">
+<img width="780" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/906d421d-ef8f-4ed3-88eb-fea7e6911146">
+</p>
+<p align="center">
+  Fig 13.
+</p>
+
++ `%run_floorplan`
+<p align="center">
+<img width="908" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/05a0ed9e-1673-4904-b7b5-69f2ed8a5e4c">
+</p>
+<p align="center">
+  Fig 14.
+</p>
+
+</details>
+
+<details>
+<summary> Review Floorplan Files and Steps to View Floorplan </summary>
+
+<p align="center">
+<img width="886" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/85df9627-fb26-436c-9f23-6fc653fd564f">
+</p>
+<p align="center">
+  Fig 15.
+</p>
+
+<p align="center">
+<img width="496" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/90a8e19b-9d4e-4894-81ca-13058b6d90ae">
+</p>
+<p align="center">
+  Fig 16.
+</p>
+
+<p align="center">
+<img width="910" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/068120f1-4d43-4de4-b33a-2d1fd7d773c0">
+</p>
+<p align="center">
+  Fig 17.
+</p>
+
+<p align="center">
+<img width="395" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/04010e78-508a-4a2f-a5aa-975688049236">
+</p>
+<p align="center">
+  Fig 18.
+</p>
+
+</details>
+
+<details>
+<summary> Review Floorplan Layout in Magic </summary>
+  
+ `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &`
+
+<p align="center">
+<img width="711" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/5cb06161-be66-4d66-a48b-447ff645608f">
+</p>
+<p align="center">
+  Fig 19.
+</p>
+
++ When viewed the horizontal metal layer
+<p align="center">
+<img width="734" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/88b24fe9-0b63-4cff-8630-b35be1ef1d8b">
+</p>
+<p align="center">
+  Fig 20.
+</p>
+
++ When viewed the vertical metal layer
+<p align="center">
+<img width="736" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/eb472d5a-269b-43cf-b97f-a8e8cfc62d07">
+</p>
+<p align="center">
+  Fig 21.
+</p>
+
+</details>

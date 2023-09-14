@@ -30,9 +30,8 @@
   - Review Floorplan Files and Steps to View Floorplan
   - Review Floorplan Layout in Magic
 + [Library Binding and Placement](#library-binding-and-placement)
-  - Netlist Binding and intial Place Design
+  - Netlist Binding and Initial Place Design
   - Optimise Placement using Estimated Wire-Length and Capacitance
-  - Final Placement Optimisation
   - Need for Libraries and Characterization
   - Congestion aware Placement using RePLAce
 + [Cell Design and Characterization Flows](#cell-design-and-characterization-flow)
@@ -672,5 +671,75 @@ https://github.com/efabless/openlane2
 <p align="center">
   Fig 21.
 </p>
+
+</details>
+
+## Library Binding and Placement
+<details>
+<summary> Netlist Binding and Initial Place Design </summary>
+
+**Netlist Binding**
++ Netlist binding is a crucial step in the process of transforming a high-level design description into a representation that can be physically implemented on a chip or printed circuit board (PCB).
++ This step involves associating the logical components and connections described in the netlist with physical components, such as gates, flip-flops, and interconnections, that will be used in the actual implementation.
+
+<p align="center">
+  <img width="584" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4778d23c-a1cf-4368-9993-bfc2c9a3cb78">
+</p>
+<p align="center">
+  Fig 1.
+</p>
+
+</details>
+
+<details>
+<summary> Optimise Placement using Estimated Wire-Length and Capacitance </summary>
+
++ We need to estimate the wire length and capacitance, and based on that insert repeaters.
+
+<p align="center">
+  <img width="406" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/dbe73423-c63e-440d-88ce-ac2d9c72a11c">
+</p>
+<p align="center">
+  Fig 2.
+</p>
+
+</details>
+
+<details>
+<summary> Need for Libraries and Characterization </summary>
+
+**Library Characterisation**
++ Library characterization is the process of creating a comprehensive and accurate characterization model for a library of standard cells.
++ These standard cells serve as the fundamental building blocks for designing digital circuits.
++ The goal of library characterization is to provide designers with essential information about how these cells behave under various operating conditions, allowing for accurate timing analysis and optimization.
+
+</details>
+
+<details>
+<summary> Congestion aware Placement using RePLAce </summary>
+
++ `%run_placement`
+<p align="center">
+<img width="320" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/2257f078-126d-4627-aafa-3343a07709bf">
+</p>
+<p align="center">
+  Fig 3.
+</p>
+
++`magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &`
+
+<p align="center">
+<img width="695" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/51f8adf9-436f-49c1-ab07-6eb3467e0dd4">
+</p>
+<p align="center">
+Fig 4.
+</p>
+
+</details>
+
+## Cell Design and Characterization Flows
+<details>
+<summary> Inputs for Cell Design Flow </summary> 
+
 
 </details>

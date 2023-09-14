@@ -19,7 +19,7 @@
   - Steps to Characterize Synthesis Results
 
  ## DAY 2
- **Good Floorplan vs Bad Floorplan and Introduction to Library Cells
+ **Good Floorplan vs Bad Floorplan and Introduction to Library Cells**
 + [Chip Floorplanning Considerations](#chip-floorplanning-considerations)
   - Utilisation Factor and Aspect Ratio
   - Concept of Pre-placed Cells
@@ -43,6 +43,36 @@
   - Timing Threshold Definitions
   - Propagation Delay and Transition Time
 
+## DAY 3
+**Design Library Cell using Magic Layout and Ngspice Characterisation**
++ [Labs for CMOS Inverter Ngspice Simulations](#labs-for-cmos-inverter-ngspice-simulations)
+  - IO Placer
+  - SPICE Deck Creation for CMOS Inverter
+  - SPICE Simulation Lab for CMOS Inverter
+  - Switching Threshold Vm
+  - Static and Dynamic Simulation of CMOS Inverter
+  - Lab Steps to Gitclone vsdstdcelldesign
++ [Inception of Layout](#inception-of-layout)
+  - Create Active Regions
+  - Formation of n-well and p-well
+  - Formation of Gate Terminal
+  - Lightly Doped Drain Formation
+  - Source Drain Formation
+  - Local Interconnect Formation
+  - Higher Level Metal Formation
+  - Lab Introduction to Sky130 Basic Layers Layout and LEF using Inverter
+  - Lab Steps to Create std cell Layout and Extract SPICE Netlist
++ [Sky130 Tech File LAbs](#sky130-tech-file-labs)
+  - Lab Stepd to Create Final SPICE Deck using Sky130 Tech
+  - LAb Steps to Characterise Inverter using Sky130 Model Files
+  - Lab Introduction to Magic Options and DRC rules
+  - Lab Introdcution to Sky130 PDKs and Steps to Download Labs
+  - Lab Introduction to Magic and Steps to Load Sky130 Tech-Rules
+  - Lab Exercise to fix poly.9 error in Sky130 Tech File
+  - Lab Exercise to Implement Poly Resistor Spacing to diff and tap
+  - Lab Challenge Exercise to Describe DRC Error as Geometrical Construct
+  - Lab Challenge to find Missing or Incorrect Rules and Fix them
+ 
 # Day-1
 ## How to Talk to Computers
 <details>
@@ -741,5 +771,205 @@ Fig 4.
 <details>
 <summary> Inputs for Cell Design Flow </summary> 
 
+**Cell Design Flow**
+<p align="center">
+  <img width="189" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/97b725b8-ee8d-42fa-9659-17d2e014343d">
+</p>
+<p align="center">
+  Fig 1.
+</p>
+
+**Inputs:**
++ PDKs (Process Design Kits):
+- PDKs are essential resources provided by semiconductor foundries.
+- They contain information about the fabrication process, including the available semiconductor technology, transistor models, and design rules.
+- PDKs enable IC designers to create layouts and perform simulations that are compatible with the specific manufacturing process of the foundry.
+
++ DRC (Design Rule Checking) and LVS (Layout vs. Schematic) Rules:
+- DRC rules are a set of guidelines that ensure that the physical layout of a chip adheres to the foundry's manufacturing process requirements.
+- LVS rules ensure that the electrical characteristics of the layout match the intended schematic design.
+- Both DRC and LVS checks are crucial for identifying and rectifying design errors and ensuring manufacturability and functionality.
+
++ SPICE Models:
+- SPICE (Simulation Program with Integrated Circuit Emphasis) models are mathematical representations of electronic components (transistors, resistors, capacitors, etc.).
+- They describe how these components behave electrically under different conditions.
+- SPICE models are used for circuit simulation to analyze the performance of an IC design and predict its behavior.
+
++ Library:
+- A library in IC design contains a collection of pre-designed, standardized components (e.g., logic gates, flip-flops, analog blocks) that can be used to build more complex circuits.
+- Libraries save time and effort by providing readily available building blocks for designing ICs.
+- Libraries often include SPICE models for each component, allowing for accurate simulation.
+
++ User-Defined Specifications:
+- User-defined specifications are custom requirements and constraints set by the IC designer for a specific design project.
+- These specifications can include performance goals (e.g., speed, power consumption), design constraints (e.g., area, power budget), and unique functionality requirements.
+- User-defined specifications guide the entire IC design process, influencing choices made in terms of circuit design, layout, and simulation.
+
+</details>
+
+<details>
+<summary> Circuit Design Step </summary>
+
++ Circuit design involves creating the logical and functional representation of digital or analog circuits using hardware description languages (HDLs) like Verilog or VHDL.
++ This step defines the behavior of the circuit without specifying its physical layout.
++ Key tasks include defining circuit functionality, specifying input and output behaviors, selecting components like logic gates or transistors, and optimizing for desired performance metrics.
+
+</details>
+
+<details>
+<summary> Layout Design Step </summary>
+
++ Layout design is the process of creating the physical arrangement of components, such as transistors, interconnections, and metal layers, on the silicon substrate to implement the circuit designed in the previous step.
++ Layout designers adhere to design rules and guidelines specific to the semiconductor process technology to ensure manufacturability.
++ Key tasks include transistor placement, routing of metal layers, ensuring signal integrity, and minimizing area while meeting performance requirements.
+
+</details>
+
+<details>
+<summary> Typical Characterization Flow </summary>
+
++ Characterization involves the comprehensive evaluation and modeling of the circuit's behavior under various conditions, ensuring that it meets design specifications and performance goals.
++ This step generates timing models, power models, and other characterization data to describe how the circuit performs under different operating conditions (e.g., voltage, temperature, process variations).
++ Characterization data is crucial for accurate static timing analysis, power estimation, and integration of the circuit into larger designs.
+
+</details>
+
+## General Timing Characterisation Parameters
+<details>
+<summary> Timing Threshold Definitions </summary>
+
+<p align="center">
+  <img width="520" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/fbb86265-278e-4ece-b4b9-12184a5fb7e5">
+</p>
+<p align="center">
+  Fig 1.
+</p>
+
+<p align="center">
+  <img width="289" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/f88636f1-87c1-4eae-ba89-736ea5b5bd9f">
+</p>
+<p align="center">
+  Fig 2.
+</p>
+
+**Slew Low Rise Threshold (slew_low_rise_thr):**
++ This parameter defines the minimum input signal slope (rate of change) required to trigger a rising transition in the output signal.
++ It helps characterize how fast an input signal must rise to initiate a change in the output signal from low to high.
+
+**Slew High Rise Threshold (slew_high_rise_thr):**
++ Similar to the slew_low_rise_thr, this parameter defines the minimum input signal slope required to trigger a rising transition in the output signal, but for signals that are already at a high logic level.
+
+**Slew Low Fall Threshold (slew_low_fall_thr):**
++ This parameter defines the minimum input signal slope required to trigger a falling transition in the output signal.
++ It specifies how fast an input signal must fall to initiate a change in the output signal from high to low.
+
+**Slew High Fall Threshold (slew_high_fall_thr):**
++ Like the slew_low_fall_thr, this parameter defines the minimum input signal slope required to trigger a falling transition in the output signal, but for signals that are already at a high logic level.
+
+**Input Rise Threshold (in_rise_thr):**
++ This parameter represents the threshold voltage level at which an input signal is considered to be transitioning from low to high.
++ It is essential for accurate timing analysis and helps determine when inputs trigger changes in the circuit.
+
+**Input Fall Threshold (in_fall_thr):**
++ Similar to in_rise_thr, this parameter represents the threshold voltage level at which an input signal is considered to be transitioning from high to low.
+
+**Output Rise Threshold (out_rise_thr):**
++ This parameter defines the threshold voltage level at which an output signal is considered to be transitioning from low to high.
++ It is used to specify the timing behavior of the circuit's outputs.
+
+**Output Fall Threshold (out_fall_thr):**
++ Similar to out_rise_thr, this parameter defines the threshold voltage level at which an output signal is considered to be transitioning from high to low.
+
+</details>
+
+# Day-3
+## Labs for CMOS Inverter Ngspice Simulations
+<details>
+<summary> IO Placer </summary>
+
++ In order to change the distance between the IO pins:
+
+  ` % set ::env(FP_IO_MODE) 2`
+  `% run_floorplan`
+
+<p align="center">
+<img width="371" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/19090a7e-cfae-4fa4-9660-3dbc2adc7ddb">
+</p>
+<p align="center">
+  Fig 1.
+</p>
+
++ We can see that they are no more equidistant.
+
+</details>
+
+<details>
+<summary> SPICE Deck Creation for CMOS Inverter </summary> 
+
+**SPICE Deck**
++ Component connectivity
++ Component values
++ Identify nodes
++ Name nodes
+
+<p align="center">
+<img width="259" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/46e02f1a-2708-4ca0-956f-83bbd08c7c92">
+</p>
+<p align="center">
+  Fig 2.
+</p>
+
+CMOS_INVERTER.cir
+```
+*** MODEL DESCRIPTIONS ***
+*** NETLIST DESCRIPTION ***
+M1 out in vdd vdd pmos W=0.375u L=0.25u
+M2 out in 0 0 nmos W=0.375u L=0.25u
+
+cload out 0 10f
+
+Vdd vdd 0 2.5
+Vin in 0 2.5
+*** SIMULATION Commands ***
+
+.op
+.dc Vin 0 2.5 0.05
+*** include tsmc_025um_model.mod ***
+.LIB "tsmc_025um_models.mod" CMOS_MODELS
+.end
+```
+
+</details>
+
+<details>
+<summary> SPICE Simulation Lab for CMOS Inverter </summary>
+
++ Simulation steps
+ - `cd <folder where the .cir file is present>`
+ - `source CMOS_INVERTER.cir`
+ - `run`
+ - `setplot`
+ - `dc1`
+ - `display`
+ - `plot out vs in`
+
+<p align="center">
+<img width="364" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8a5eb330-8c2b-4675-a977-257d343c8db3">
+</p>
+<p align="center">
+Fig 3.
+</p>
+
++ The output should be symmetric ie., the threshold voltage should be at vdd/2.
++ If it isnt, try to increase the PMOS width and run the simulation again.
+
+</details>
+
+<details>
+<summary> Switching Threshold Vm </summary>
+
++ CMOS as a circuit itself is a very **Robust** device.
++ **Switching threshold** defines the robustness of CMOS.
++ **Vm** is the point where Vin=Vout.
 
 </details>

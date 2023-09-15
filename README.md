@@ -974,3 +974,77 @@ Fig 3.
 + **Vm** is the point where Vin=Vout.
 
 </details>
+
+<details>
+<summary> Lab Steps to Gitclone vsdstdcelldesign </summary>
+
++ `git clone https://github.com/nickson-jose/vsdstdcelldesign.git`
+
+<p align="center">
+<img width="661" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/c0a4f88c-51c3-48d6-84a0-10c295b035be">
+</p>
+<p align="center">
+  Fig 4.
+</p>
+
++ ` cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign`
+
+<p align="center">
+<img width="901" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4b789488-6dd8-4631-b6aa-45a8707f9c8d">
+</p>
+<p align="center">
+  Fig 5.
+</p>
+
++ We can see that the tech file is added.
+
+<p align="center">
+<img width="669" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/799e1d19-41ad-49ba-87c4-4d2d88d574c9">
+</p>
+<p align="center">
+Fig 6.
+</p>
+
+</details>
+
+## Inception of Layout
+<details>
+<summary> Create Active Regions </summary>
+
++ Fabrication of CMOS is a 16 Mask process.
+
+**Selecting the Substrate**
++ We go for a p-type substrate with
+  - resistivity around : 5-50 ohm
+  - doping level : 10^15 cm^-3
+  - orientation : 100
+
+**Creating Active region for transistors**
++ Grow a layer of SiO2(~40nm) on Psub
++ deposit a layer of ~80nm Si3N4 on SiO2
++ deposit 1um layer of photoresist(used to define regions)
++ photolithography
++ etching out Si3N4 and SiO2 using a suitable solvent
++ Place the obtained structure in oxidation furnace due to which field oxide is grown.This process is called LOCOS ( Local oxidation of silicon).
++ Etching out Si3N4 using hot phosphoric acid
+
+</details>
+
+<details>
+<summary> Formation of n-well and p-well </summary>
+
+**n-well and p-well formation**
++ deposit a layer of photoresist
++ apply mask to cover NMOS
++ expose to UV light, wash away the area which is exposed and remove mask
++ deposit Boron using ion implementation at an energy of 200keV
++ repeat the same steps for other half using phosphorous at an energy of 400keV
++ Wells have been created but the depth is low, hence subject it to high temperature furnace which increases the well depth.
+
+</details>
+
+<details>
+<summary> Formation of Gate Terminal </summary>
+
+
+</details>

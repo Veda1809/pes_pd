@@ -1020,31 +1020,173 @@ Fig 6.
   - orientation : 100
 
 **Creating Active region for transistors**
-+ Grow a layer of SiO2(~40nm) on Psub
-+ deposit a layer of ~80nm Si3N4 on SiO2
-+ deposit 1um layer of photoresist(used to define regions)
-+ photolithography
-+ etching out Si3N4 and SiO2 using a suitable solvent
+
++ Grow a layer of SiO2(~40nm) on Psub.
++ Deposit a layer of ~80nm Si3N4 on SiO2.
++ Deposit 1um layer of photoresist(used to define regions).
++ Photolithography.
++ Etch out Si3N4 and SiO2 using a suitable solvent.
 + Place the obtained structure in oxidation furnace due to which field oxide is grown.This process is called LOCOS ( Local oxidation of silicon).
-+ Etching out Si3N4 using hot phosphoric acid
++ Etch out Si3N4 using hot phosphoric acid.
 
 </details>
 
 <details>
 <summary> Formation of n-well and p-well </summary>
 
-**n-well and p-well formation**
-+ deposit a layer of photoresist
-+ apply mask to cover NMOS
-+ expose to UV light, wash away the area which is exposed and remove mask
-+ deposit Boron using ion implementation at an energy of 200keV
-+ repeat the same steps for other half using phosphorous at an energy of 400keV
++ Deposit a layer of photoresist.
++ Apply mask to cover NMOS.
++ Expose to UV light, wash away the area which is exposed and remove mask.
++ Deposit Boron using ion implementation at an energy of 200keV.
++ Repeat the same steps for other half using phosphorous at an energy of 400keV.
 + Wells have been created but the depth is low, hence subject it to high temperature furnace which increases the well depth.
 
 </details>
 
 <details>
 <summary> Formation of Gate Terminal </summary>
+  
++ Deposit a layer of photoresist.
++ Apply mask to cover NMOS.
++ Expose to UV light, wash away the area which is exposed and remove mask.
++ Deposit Boron using ion implementation at an energy of 200keV cause we need boron at the surface.
++ Repeat the same steps for other half using arsenic.
++ Original oxide etched/stripped using hydroflouric solution.
++ Then re-grown again to give high quality oxide (~10nm thin).
++ Deposit ~0.4um polysilicon layer.
++ Dope N-type (phosphorous/ arsenic) ion implants for low gate resistance.
++ Deposit a layer of photoresist and repeat the same steps till removing the mask.
 
+</details>
+
+<details>
+<summary> Lightly Doped Drain Formation </summary>
+
++ The doping profile near n-well is P+, P-, N.
++ Near p-well is N+, N-, P.
++ 2 reasons to do this:
+  - hot electron effect
+  - short cahnnel effect
++ On the surface of SiO2, near N-well, deposit a layer of photoresist, and mask it.
++ Expose to UV light, wash away the area which is exposed and remove mask.
++ Apply phosphorous to form N- implant on p-well.
++ Similarly do it on the other half, but apply boron to form P- implant on n-well.
++ LDD needs to be protected, hence deposit 0.1um thick SiO2 on full structure and etch out using plasma anisotropic etching.
++ This results in the formation of side-wall spacers.
+
+</details>
+
+<details>
+<summary> Source and Drain Formation </summary>
+
++ On the surface of SiO2, near N-well, deposit a layer of photoresist, and mask it.
++ Expose to UV light, wash away the area which is exposed and remove mask.
++ Deposit arsenic at 75KeV that forms an N+ implant on Pwell.
++ Similarly do it on the other half, but apply boron to form P+ implant on n-well.
++ Subject it to high temperature furnace that results in required thickness of N+,P+,N-,P- implants.
+
+</details>
+
+<details>
+<summary> Local Interconnect Formation </summary>
+
++ Etch thin SiO2 oxide in HF solution.
++ Deposit Titanium of wafer surface using sputtering.
++ Wafer heated at 650-700 degree celsius in N2 ambient for 60 sec.
++ Results in low resistant TiSi2.
++ At the other places, TiN is formed which is used only for local communication.
++ TiN is etched off using RCA cleaning.
+
+</details>
+
+<details>
+<summary> Higher Level Metal Formation </summary>
+
++ Deposit 1um of SiO2 with phosphorous or boron (known as phosphoborosilicate glass) on wafer surface.
++ Use CMP (chemical mechanical polishing) technique for planarizing wafer surface.
++ TiN and blanket Tungsten layers are deposited and subjected to CMP.
++ An aluminum (Al) layer is added and subjected to photolithography and CMP.
++ Deposit a layer of Si3N4 that acts as dielectric to protect the chip.
+
+<p align="center">
+  <img width="413" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6c433da2-3e8c-4072-9abe-576e442ea492">
+</p>
+
+</details>
+
+<detailS>
+<summary> Lab Introduction to Sky130 Basic Layers Layout and LEF using Inverter </summary>
+
++ `magic -T sky130A.tech sky130_inv.mag &`
+
+<p align="center">
+<img width="719" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/c75dc309-03ef-4b5b-968a-62d4438b1943">
+</p>
+<p align="center">
+Fig 7.
+</p>
+
++ Click on the component and type `what` in the tkcon window.
+
+<p align="center">
+<img width="648" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/995400e6-dbb6-4940-beb1-4581d7415656">
+</p>
+<p align="center">
+Fig 8.
+</p>
+
+</detailS>
+
+<details>
+<summary> Lab Steps to Create std cell Layout and Extract SPICE Netlist </summary>
+
++ DRC errors in magic will be highlighted with white dotted lines.
+<p align="center">
+<img width="541" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/25877323-e6ff-4289-83cb-0159ef9e07ec">
+</p>
+<p align="center">
+  Fig 9.
+</p>
+
++ To identify DRC errors select `DRC find next error`.
++ It will be displayed on the tkcon window.
+
+<p align="center">
+<img width="551" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/3fb71982-e469-424c-a463-3b53d561a846">
+</p>
+<p align="center">
+  Fig 10.
+</p>
+
++ Extracting to SPICE Command
+  - `extract all`
+  - `ext2spice cthresh 0 rthresh 0`
+  - `ext2spice`
++ cthresh and rthresh are used to extract all parasatic capacitances.
+
+<p align="center">
+<img width="589" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8ed214bb-d45a-417b-991c-520fb5bf34ea">
+</p>
+<p align="center">
+  Fig 11.
+</p>
+
++ We can see that the spice file is created in the folder.
+
+<p align="center">
+<img width="551" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1262ad1d-1591-4769-8eda-56d2ddd0e60e">
+</p>
+<p align="center">
+  Fig 12.
+</p>
+
++ Spice File
+
+<p align="center">
+<img width="622" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1c8795c8-5704-4b4e-be02-7b89d538e4d3">
+</p>
+<p align="center">
+Fig 13.
+</p>
 
 </details>

@@ -1,78 +1,31 @@
 # ADVANCED PHYSICAL DESIGN USING OPENLANE/SKY130
-# VE-VEDA
 # Table Of Contents
 ## DAY 1
 **Inception of Open-Source EDA, OpenLane and Sky130 PDK**
 + [How to Talk to Computers](#how-to-talk-to-computers)
-  - Introduction to QFN-48 Package, Chip, Pads, Core, Die and IPs
-  - Introduction to RISC-V
-  - From Software Applications to Hardware
 + [SoC Design and OpenLane](#soc-design-and-openlane)
-  - Introduction to all Components of Open-Source Digital ASIC Design
-  - Simplified RTL2GDS Flow
-  - Introduction to OpenLane and Strive Chipsets
-  - Introduction to OpenLane Detailed ASIC Design Flow
 + [Open-Source EDA Tools](#open-source-eda-tools)
-  - OpenLane Directory Structure
-  - Design Preparation Step
-  - Review Files after Design Prep and Run Synthesis
-  - OpenLane Project Git Link Description
-  - Steps to Characterize Synthesis Results
-
- ## DAY 2
- **Good Floorplan vs Bad Floorplan and Introduction to Library Cells**
+  
+## DAY 2
+**Good Floorplan vs Bad Floorplan and Introduction to Library Cells**
 + [Chip Floorplanning Considerations](#chip-floorplanning-considerations)
-  - Utilisation Factor and Aspect Ratio
-  - Concept of Pre-placed Cells
-  - De-coupling Capacitors
-  - Power Planning
-  - Pin Placement and Logical Cell Placement Blockage
-  - Steps to run Floorplan using OpenLane
-  - Review Floorplan Files and Steps to View Floorplan
-  - Review Floorplan Layout in Magic
 + [Library Binding and Placement](#library-binding-and-placement)
-  - Netlist Binding and Initial Place Design
-  - Optimise Placement using Estimated Wire-Length and Capacitance
-  - Need for Libraries and Characterization
-  - Congestion aware Placement using RePLAce
 + [Cell Design and Characterization Flows](#cell-design-and-characterization-flow)
-  - Inputs for cell design flow
-  - Circuit Design Step
-  - Layout Design Step
-  - Typical Characterization Flow
 + [General Timing Characterisation Parameters](#general-timing-characterisation-parameters)
-  - Timing Threshold Definitions
-  - Propagation Delay and Transition Time
 
 ## DAY 3
 **Design Library Cell using Magic Layout and Ngspice Characterisation**
 + [Labs for CMOS Inverter Ngspice Simulations](#labs-for-cmos-inverter-ngspice-simulations)
-  - IO Placer
-  - SPICE Deck Creation for CMOS Inverter
-  - SPICE Simulation Lab for CMOS Inverter
-  - Switching Threshold Vm
-  - Static and Dynamic Simulation of CMOS Inverter
-  - Lab Steps to Gitclone vsdstdcelldesign
 + [Inception of Layout](#inception-of-layout)
-  - Create Active Regions
-  - Formation of n-well and p-well
-  - Formation of Gate Terminal
-  - Lightly Doped Drain Formation
-  - Source Drain Formation
-  - Local Interconnect Formation
-  - Higher Level Metal Formation
-  - Lab Introduction to Sky130 Basic Layers Layout and LEF using Inverter
-  - Lab Steps to Create std cell Layout and Extract SPICE Netlist
 + [Sky130 Tech File Labs](#sky130-tech-file-labs)
-  - Lab Steps to Create Final SPICE Deck using Sky130 Tech
-  - LAb Steps to Characterise Inverter using Sky130 Model Files
-  - Introduction to Magic Options and DRC rules
-  - Introdcution to Sky130 PDKs and Steps to Download Labs
-  - Lab Introduction to Magic and Steps to Load Sky130 Tech-Rules
-  - Lab Exercise to fix poly.9 error in Sky130 Tech File
-  - Lab Exercise to Implement Poly Resistor Spacing to diff and tap
-  - Lab Challenge Exercise to Describe DRC Error as Geometrical Construct
- 
+  
+## DAY 4
+**Pre-Layout Timing Analysis and importance of Good CLock Tree**
++ [Timing Modelling Using Delay Tables](timing-modelling-using-delay-tables)
++ [Timing Analysis with Ideal Clocks using openSTA](#timing-analysis-with-ideal-clocks-using-opensta)
++ [Clock Tree Synthesis TritonCTS and Signal Integrity](#clock-tree-synthesis-tritoncts-and-signal-integrity)
++ [Timing Analysis with Real Clocks using OpenSTA](#timing-analysis-with-real-clocks-using-opensta)
+
 # Day-1
 ## How to Talk to Computers
 <details>
@@ -1419,3 +1372,177 @@ Fig 20.
 </p>
 
 </details>
+
+# Day-4
+## Timing Modelling Using Delay Tables
+<details>
+<summary> Lab steps to convert Grid info into Track info </summary>
+
++ `less tracks.info`
+
+<p align="center">
+<img width="167" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8289365c-c2c7-4a3e-99de-1889d106a431">
+</p>
+<p align="center">
+Fig 1.
+</p>
+
++ The 'tracks.info' file is used during the routing stage.
++ Routes are the metal traces.
++ Since the PNR is an automated flow, we need to specify where all we want the routes to go.
+
++ Now we converge the grid definition in the layout to track definition.
+
+<p align="center">
+<img width="823" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/882256d8-28cc-46ee-8c63-2a798b87e6d8">
+</p>
+<p align="center">
+Fig 2.
+</p>
+
++ The next requirement is that the width of the cell should be the odd multiple of xpitch which is '0.46' as seen in the 'tracks.info' file.
++ As we can see it encloses two full boxes and two halves of one box, totally making three boxes as indicated by the white line.
+
+<p align="center">
+<img width="678" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/381783f2-7ad4-4a01-9982-260a0ba61a67">
+</p>
+<p align="center">
+Fig 3.
+</p>
+
+</details>
+
+<details>
+<summary> Lab steps to convert Magic Layout to Std Cell LEF </summary>
+
++ In the tkcon window, type `save sky130_vsdinv.mag`.
++ This is to make our own .mag file.
++ `lef write` to make .lef file
+<p align="center">
+<img width="854" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6f2d7ace-30df-4e29-b786-b4269ec9385c">
+</p>
+<p align="center">
+Fig 4.
+</p>
+
++ `less sky130_vsdinv.lef`.
+<p align="center">
+<img width="517" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/00eeb26b-21af-4ca8-b3db-395dd850477c">
+</p>
+<p align="center">
+Fig 5.
+</p>
+
+</details>
+
+<details>
+<summary> Introduction to Timing Libs and Steps to include New cell in Synthesis </summary>
+
++ We copy the lef file and the libraries.
+
+<p align="center">
+<img width="905" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/d91ccfe2-057f-41a6-857e-7f011f2d0a63">
+</p>
+<p align="center">
+Fig 6.
+</p>
+
+<p align="center">
+<img width="713" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/9b9901c4-f07d-4514-8016-87be96adfbd6">
+</p>
+<p align="center">
+Fig 7.
+</p>
+
++ Next we modify the 'config.tcl' file in the picorv32a folder.
+
+<p align="center">
+<img width="866" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6c01a5df-2ae5-431d-9636-9c8762e1e94c">
+</p>
+<p align="center">
+Fig 8.
+</p>
+
++ Open the OpenLANE interactive window and retrieve the 0.9 package.
+ - ` prep -design picorv32a -tag 16-09_19-58 -overwrite`
+ - `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`
+ - `add_lefs -src $lefs `
+ - `run_synthesis`
+<p align="center">
+<img width="902" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/0b879804-d62c-4549-9c7d-df2dbc97ca3f">
+</p>
+<p align="center">
+Fig 9.
+</p>
+
+<p align="center">
+<img width="353" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/37319c15-7f05-4642-a2dd-ff5e9cb845f3">
+</p>
+<p align="center">
+Fig 10.
+</p>
+
++ There is slack, hence we need to reduce it.
+
+<p align="center">
+<img width="167" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/a09b259e-6bcf-42d0-97b9-4c4b8d0fe0bf">
+</p>
+<p align="center">
+Fig 11.
+</p>
+
++ VLSI engineers will obtain system specifications in the architecture design phase. These specifications will determine a required frequency of operation. To analyze a circuit's timing performance designers will use static timing analysis tools (STA). When referring to pre clock tree synthesis STA analysis we are mainly concerned with setup timing in regards to a launch clock. STA will report problems such as worst negative slack (WNS) and total negative slack (TNS). These refer to the worst path delay and total path delay in regards to our setup timing restraint. Fixing slack violations can be debugged through performing STA analysis with OpenSTA, which is integrated in the OpenLANE tool. To describe these constraints to tools such as In order to ensure correct operation of these tools two steps must be taken:
+
++ Design configuration files (.conf) - Tool configuration files for the specified design
++ Design Synopsys design constraint (.sdc) files - Industry standard constraints file
+
+</details>
+
+<details>
+<summary> Delay Tables </summary>
+
+**Introduction**
++ Delay tables, often referred to as delay models or delay tables in the context of digital integrated circuit design, are data structures that provide information about the propagation delay of digital logic gates or cells under various conditions.
++ These tables are a fundamental component of static timing analysis (STA) and are used to predict the signal arrival times and meet timing constraints in digital designs.
+
+**Purpose of Delay Tables:**
++ Delay tables are used to estimate the time it takes for a signal to propagate through a digital logic gate or cell.
++ This information is crucial for ensuring that signals meet their setup and hold time requirements and for calculating the overall timing behavior of a digital circuit.
+
+**Types of Delay Tables:**
++ There are two main types of delay tables:
+   - Library Delay Tables: These tables are part of a standard cell library and provide information about the delays of individual logic gates (AND, OR, XOR, flip-flops, 
+    etc.) under various operating conditions (input transitions, voltage, temperature, etc.). Library delay tables are used to estimate the delays associated with 
+    different gate types.
+   - Interconnect Delay Tables: These tables describe the delay associated with routing signals between logic gates or cells on a chip. They account for wire resistance, 
+   capacitance, and other physical properties that affect signal propagation.
+
+**Data in Delay Tables:**
++ Delay tables typically include information such as:
+   - Input conditions: Input transition times or slew rates.
+   - Process corners: Variations in process technology, including worst-case and best-case scenarios.
+   - Operating conditions: Voltage and temperature conditions.
+   - Delay values: Delays for signal propagation through the gate or interconnect, often specified for different output loading conditions.
+
+**Timing Analysis:**
++ Delay tables are used by STA tools to perform timing analysis on digital designs.
++ These tools use the delay tables to estimate the critical path delays, setup times, hold times, and other timing parameters.
+
+**Corner Analysis:**
++ Corner analysis involves using delay tables for various process corners (e.g., slow, typical, fast) to account for manufacturing process variations.
++ This ensures that the design meets timing under a range of conditions.
+
+**Clock Domain Crossing (CDC) Analysis:**
++ Delay tables are also used in CDC analysis to analyze signals that cross between different clock domains.
++ Understanding signal arrival times is crucial in preventing metastability issues.
+
+**Optimization:**
++ Designers use delay tables to optimize their designs by selecting gates with appropriate delays to meet performance, power, and area goals.
+
+**Iterative Process:**
++ During the design process, delay tables are used iteratively.
++ Designers may make adjustments to the design and rerun timing analysis to ensure that the design meets its timing constraints.
+
+</details>
+
+## Timing Analysis with Ideal Clocks using openSTA

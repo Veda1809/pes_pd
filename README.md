@@ -63,16 +63,15 @@
   - Higher Level Metal Formation
   - Lab Introduction to Sky130 Basic Layers Layout and LEF using Inverter
   - Lab Steps to Create std cell Layout and Extract SPICE Netlist
-+ [Sky130 Tech File LAbs](#sky130-tech-file-labs)
-  - Lab Stepd to Create Final SPICE Deck using Sky130 Tech
++ [Sky130 Tech File Labs](#sky130-tech-file-labs)
+  - Lab Steps to Create Final SPICE Deck using Sky130 Tech
   - LAb Steps to Characterise Inverter using Sky130 Model Files
-  - Lab Introduction to Magic Options and DRC rules
-  - Lab Introdcution to Sky130 PDKs and Steps to Download Labs
+  - Introduction to Magic Options and DRC rules
+  - Introdcution to Sky130 PDKs and Steps to Download Labs
   - Lab Introduction to Magic and Steps to Load Sky130 Tech-Rules
   - Lab Exercise to fix poly.9 error in Sky130 Tech File
   - Lab Exercise to Implement Poly Resistor Spacing to diff and tap
   - Lab Challenge Exercise to Describe DRC Error as Geometrical Construct
-  - Lab Challenge to find Missing or Incorrect Rules and Fix them
  
 # Day-1
 ## How to Talk to Computers
@@ -1187,6 +1186,236 @@ Fig 8.
 </p>
 <p align="center">
 Fig 13.
+</p>
+
+</details>
+
+## Sky130 Tech File Labs
+<details>
+<summary> Lab Steps to Create Final SPICE Deck using Sky130 Tech </summary>
+
++ Grid size.
+<p align="center">
+<img width="620" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bc81ff12-1b6a-4c89-bc89-63cbd3e6be74">
+</p>
+<p align="center">
+  Fig 1.
+</p>
+
++ We modified the spice file.
+<p align="center">
+<img width="476" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/76803aae-5b91-478a-b4ca-a5789c5bd6e9">
+</p>
+<p align="center">
+  Fig 2.
+</p>
+
+ - `ngspice sky130_inv.spice`
+ - `plot y vs time a`
+
+<p align="center">
+<img width="881" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/a50792a4-3ac7-421f-9d19-2952bdc69bf0">
+</p>
+<p align="center">
+  Fig 3.
+</p>
+
+</details>
+
+<details>
+<summary> Introduction to Magic Options and DRC rules </summary>
++ For reference : http://opencircuitdesign.com/magic/
+
+**Magic**
++ Magic is a venerable VLSI layout tool, written in the 1980's at Berkeley by John Ousterhout, now famous primarily for writing the scripting interpreter language Tcl. 
++ Due largely in part to its liberal Berkeley open-source license, magic has remained popular with universities and small companies.
++ The open-source license has allowed VLSI engineers with a bent toward programming to implement clever ideas and help magic stay abreast of fabrication technology.
++ However, it is the well thought-out core algorithms which lend to magic the greatest part of its popularity.
++ Magic is widely cited as being the easiest tool to use for circuit layout, even for people who ultimately rely on commercial tools for their product design flow.
+
+**DRC rules**
++ DRC (Design Rule Check) rules are a set of guidelines and constraints used in the field of semiconductor and integrated circuit (IC) design to ensure that the physical layout of a chip or circuit adheres to the manufacturing process's design rules.
++ These rules are essential for maintaining manufacturability and ensuring that the final ICs can be fabricated without defects.
++ The design rules used by Magic's design rule checker come entirely from the technology file.
+
+</details>
+
+<details>
+<summary> Introdcution to Sky130 PDKs and Steps to Download Labs </summary>
+
+**Sky130 PDK**
++ SKY130 is a mature 180nm-130nm hybrid technology developed by Cypress Semiconductor that has been used for many production parts.
++ SKY130 is now available as a foundry technology through SkyWater Technology Foundry.
+
++ `wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz`
+
+<p align="center">
+<img width="758" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/abd377f1-d5df-4639-bbe6-7a5237bc1f97">
+</p>
+<p align="center">
+  Fig 4.
+</p>
+
+</details>
+
+<details>
+<summary> Lab Introduction to Magic and Steps to Load Sky130 Tech-Rules </summary>
+
++ To open Magic
+  - `magic -d XR`
+ 
++ Go to files then open `met3.mag` file.
+
+<p align="center">
+<img width="835" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ba236cb5-4769-4e81-a801-0467d545f2fa">
+</p>
+<p align="center">
+  Fig 5.
+</p>
+
++ To check which DRC rule is being violated select area.
++ Type `drc why` in tkcon.
+
+<p align="center">
+<img width="770" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ae1e9b82-8b02-48ed-be75-10ab6b43b68e">
+</p>
+<p align="center">
+  Fig 6.
+</p>
+
++ To add contact cuts add met3 contact by selecting area and clicking on m3contact using middle mouse button.
++  Type  `cif see VIA2` in tkcon prompt.
+
+<p align="center">
+<img width="726" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/13f6db17-0d5c-48cb-95c7-6221f5a7089b">
+</p>
+<p align="center">
+  Fig 7.
+</p>
+
+</details>
+
+<details>
+<summary> Lab Exercise to fix poly.9 error in Sky130 Tech File </summary>
+
++ Type `load poly` in the tkon prompt.
+
+<p align="center">
+<img width="735" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1d4ac890-5bbd-4630-b124-a23f795baa04">
+</p>
+<p align="center">
+  Fig 8.
+</p>
+
+<p align="center">
+<img width="182" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/cf6d4ecd-44c1-4c5b-86ec-1653d7a3d62b">
+</p>
+<p align="center">
+  Fig 9.
+</p>
+
++ The error is:
+<p align="center">
+<img width="611" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1d709337-9601-4541-bda2-4cce6d787d17">
+</p>
+<p align="center">
+  Fig 10.
+</p>
+
++ To fix the error open the sky130A.tech file using a editor and search for poly.9 and make the changes.
+<p align="center">
+<img width="662" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/32d10f95-bec7-4278-a870-5bac048f7c29">
+</p>
+<p align="center">
+  Fig 11.
+</p>
+
+<p align="center">
+<img width="496" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/384efd39-5077-4bfa-943a-d12b10be7536">
+</p>
+<p align="center">
+  Fig 12.
+</p>
+
++ Now load the sky130A.tech file `tech load sky130A.tech`.
++ Type the command `drc check`.
++ We can see that the error is fixed.
+
+<p align="center">
+<img width="356" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bf3227a0-056e-499f-91d6-e31d230fd23d">
+</p>
+<p align="center">
+  Fig 13.
+</p>
+
+</details>
+
+<details>
+<summary> Lab Challenge Exercise to Describe DRC Error as Geometrical Construct </summary>
+
++ Open the nwell.mag file in magic.
++ Select the nwell.6
++ Type the following commands in tkon prompt:
+  - `cif ostyle drc`
+  - `cif see dnwell_shrink`
+  - `cif see dnwell_missing`
+
+<p align="center">
+<img width="891" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/300cf7b8-302e-42a8-8340-3ba25163e1bd">
+</p>
+<p align="center">
+Fig 14.
+</p>
+
++ To find missing or incorrect rules and fix them.
+
+<p align="center">
+<img width="403" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4dc02e55-9192-45b2-bac7-2431441cee34">
+</p>
+<p align="center">
+Fig 15.
+</p>
+
++ Error is :
+
+<p align="center">
+<img width="611" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/7a002a41-51b8-4018-9d0a-7ee8195359fe">
+</p>
+<p align="center">
+Fig 16.
+</p>
+
++ To fix the error open the sky130A.tech file using a editor.
+
+<p align="center">
+<img width="575" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ee2e7173-7af3-4906-8286-c5f0a1e34b82">
+</p>
+<p align="center">
+Fig 17.
+</p>
+
+<p align="center">
+<img width="506" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/823aceec-1182-44d1-8d85-ce98499da3e0">
+</p>
+<p align="center">
+fig 18.
+</p>
+
++ Now load the sky130A.tech file `tech load sky130A.tech`.
++ Type the command `drc check` for both normal and drc fast.
+
+<p align="center">
+<img width="760" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/eab2681e-e063-4d01-888d-2df4c2c84c65">
+</p>
+<p align="center">
+Fig 19.
+</p>
+
+<p align="center">
+<img width="371" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/e6a0ce8b-3454-438f-a68c-2d613857623a">
+</p>
+<p align="center">
+Fig 20.
 </p>
 
 </details>

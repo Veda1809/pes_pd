@@ -1383,6 +1383,7 @@ Fig 20.
 <details>
 <summary> Lab steps to convert Grid info into Track info </summary>
 
++ ` ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130fd_sc_hd/tracks.info`
 + `less tracks.info`
 
 <p align="center">

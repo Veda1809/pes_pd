@@ -1779,13 +1779,25 @@ Lambda rules are process-specific design rules used in semiconductor manufacturi
 <summary> Power Distribution Network </summary>
 
 + After generating our clock tree network and verifying post routing STA checks we are ready to generate the power distribution network `gen_pdn` in OpenLANE:
+
+<img width="649" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/e1ce1d33-1b5a-4140-9edf-39d33130198d">
+
+<img width="503" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ac918898-3556-4737-b23c-5d299bbb4392">
+
 + The PDN feature within OpenLANE will create:
    - Power ring global to the entire core
    - Power halo local to any preplaced cells
    - Power straps to bring power into the center of the chip
    - Power rails for the standard cells
 + We see that there is a change in the DEF.
-  
+
+<p align="center">
+<img width="569" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/10725da7-4122-456e-b69c-31c8b4215ec3">
+</p>
+<p align="center">
+  Fig 1.
+</p>
+
 </details>
 
 <details>
@@ -1797,6 +1809,13 @@ Lambda rules are process-specific design rules used in semiconductor manufacturi
 
 + To run routing in OpenLANE:
   `run_routing`
+
+<p align="center">
+<img width="433" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/d559ab2c-9d22-4bd8-aa5c-d0084a5f77c4">
+</p>
+<p align="center">
+  Fig 2.
+</p>
 
 + If DRC errors persist after routing the user has two options:
   - Re-run routing with higher QoR settings.

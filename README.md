@@ -10,7 +10,7 @@
 **Good Floorplan vs Bad Floorplan and Introduction to Library Cells**
 + [Chip Floorplanning Considerations](#chip-floorplanning-considerations)
 + [Library Binding and Placement](#library-binding-and-placement)
-+ [Cell Design and Characterization Flows](#cell-design-and-characterization-flow)
++ [Cell Design and Characterization Flow](#cell-design-and-characterization-flow)
 + [General Timing Characterisation Parameters](#general-timing-characterisation-parameters)
 
 ## DAY 3
@@ -39,7 +39,7 @@
 **Arduino Board**
 + An Arduino board is a microcontroller-based development platform that allows you to create and prototype a wide range of electronics projects.
 <p align='center'>
- <img width="488" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/953e6e1e-3a2d-4dbe-9e26-2a8bde4ea090">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/178aa000-799a-4bc4-b167-b83ab09d605b">
 </p>
 <p align="center">
   Fig 1. Typical Design of Arduino Board
@@ -50,7 +50,7 @@
 + QFN packages are commonly used in electronics to house integrated circuits, microcontrollers, and other semiconductor devices.
 + The **48** in QFN-48 refers to the number of pins or leads on the package.
 <p align="center">
-  <img width="446" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/a089c80c-67e3-4ab6-b034-242aa3c43f17">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/808275b3-21b6-4f41-b141-5e4e18d887ae">
 </p>
 <p align="center">
   Fig 2. QFN-48 Package
@@ -61,7 +61,7 @@
 + These chips can be microprocessors, memory chips, sensors, or other electronic components. For example, a microprocessor chip is the **brain** of a computer.
 
 <p align="center">
-<img width="400" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bbc43d6e-cc64-48ed-93d1-c20b8eaedcf8">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/46d6c5f8-1d9d-4f62-82f6-5f641f0c785f">
 </p>
 <p align="center">
   Fig 3. Chip
@@ -84,7 +84,7 @@
 +  The presence of multiple cores on a single chip is known as **multi-core processing**.
 
 <p align="center">
-<img width="466" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/b9231cfb-4caf-407e-a62f-980588abccc3">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/dc7ada7c-a46d-4fb2-863e-17939ed96e84">
 </p>
 <p align="center">
   Fig 4. Sample RISC-V SoC
@@ -117,7 +117,7 @@
 + RISC architectures simplify the instruction set by focusing on a smaller set of instructions, each of which can be executed in a single clock cycle. This approach usually leads to faster execution of individual instructions. 
 
 <p align="center">
-  <img width="536" alt="image" src="https://github.com/Veda1809/pes_asic_class/assets/142098395/4eabe0b7-4581-419b-88e7-84c7ac1dac8e">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/f68c01f0-15f9-4d41-877f-6d54b7e9a11f">
 </p>
 <p align="center">
   Fig 5. Design Flow
@@ -150,7 +150,7 @@
 + EDA (Electronic Design Automation) tools are a set of software applications and tools used by electronics engineers and integrated circuit (IC) designers to design, simulate, verify, and analyze electronic circuits and systems.
 + These tools are essential for designing complex electronic devices, ranging from simple integrated circuits to advanced microprocessors and systems-on-chip (SoCs).
 <p align="center">
-  <img width="317" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/e43d7528-a6a7-4ee4-aacf-b8312364a5e9">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/9a7ffdda-2329-4d2b-bf88-c5c7cc26bdab">
 </p>
 
 **130nm**
@@ -164,7 +164,7 @@
 
 **RTL to GDSII**
 <p align="center">
-  <img width="381" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/0ccd4b81-4965-4194-8d62-ca2b79d761e2">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/bc677045-ae97-494d-912e-e9f897d1c48d">
 </p>
 <p align="center">
   Fig 1. Simplified RTL to GDS FLow
@@ -210,7 +210,7 @@ During the detailed placement phase, the positions of individual components, suc
 
 + **Strive Chipsets**
 <p align="center">
-  <img width="239" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/2758ce5f-9301-4876-929e-72d93de298f6">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/bad52211-4fc0-4b78-a4a1-3a2771f883fd">
 </p>
 <p align="center">
   Fig 2. Strive SoC Family
@@ -223,7 +223,7 @@ During the detailed placement phase, the positions of individual components, suc
 
 
 <p align="center">
-  <img width="584" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8d1647a2-0d27-46a6-b9ad-e9f59984401a">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/e1f77b82-98df-43e2-b304-cfe6ec7276b1">
 </p>
 
 <p align="center">
@@ -283,7 +283,7 @@ During the detailed placement phase, the positions of individual components, suc
 
 + PDK used in this workshop is Skywater 130nm PDK and OpenLane is built around this PDK.
 <p align="center">'
-  <img width="580" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8d8a1f07-abbc-46e6-8616-ff13da29ff3b">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/4f189edf-3494-454c-a15c-9e373a2048fc">
 </p>
 <p align="center">
   Fig 1.
@@ -294,7 +294,7 @@ During the detailed placement phase, the positions of individual components, suc
 + **sky130A** is made compatible with our open-source environment.
 
 <p align="center">
-  <img width="644" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8dd1e174-9c23-4dcf-a90d-56e5179934be">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/00961d35-568a-446e-8f41-c02e073d0da5">
 </p>
 <p align="center">
   Fig 2.
@@ -304,7 +304,7 @@ During the detailed placement phase, the positions of individual components, suc
 + **libs.tech** seems specific to the tool.
 
 <p align="center">
-  <img width="744" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/cc73e63f-4629-4b99-8047-e314f9008992">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/0bb5747e-e405-4a57-b516-872a4efe1be0">
 </p>
 <p align="center">
   Fig 3.
@@ -319,7 +319,7 @@ During the detailed placement phase, the positions of individual components, suc
 + To invoke OpenLane
 
 <p align="center">
-  <img width="536" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8b8830dd-7aa4-4e8a-a5ae-51635f8ce4c1">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c3c91c98-8063-46b3-896f-db474a519c5b">
 </p>
 <p align="center">
   Fig 4.
@@ -328,7 +328,7 @@ During the detailed placement phase, the positions of individual components, suc
 + Under **Designs** folder, we are going to use **picorv32a**.
 + **src** files contains verilog and sdc file.
 <p align="center">
- <img width="697" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4f26eb47-4c0f-4e33-8775-f1144e2cd09b">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/7ab88728-65b0-4f32-b67c-8c094a90ce8e">
 </p>
 <p align="center">
   Fig 5.
@@ -337,7 +337,7 @@ During the detailed placement phase, the positions of individual components, suc
 + `less config.tcl`
 
 <p align="center">
-<img width="763" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6200069a-9833-4036-80df-4f7d48a42a3a">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/2890dbb9-4865-4db0-9699-9413c7518680">
 </p>
 <p align="center">
 Fig 6.
@@ -346,7 +346,7 @@ Fig 6.
 + We are going to prepare the design.
 + `prep -design picorv32a`.
 <p align="center">
-  <img width="904" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/81d463c2-4fe6-4a44-b52b-9ac65c54c718">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/dd9a5775-7f8f-476b-86b7-07ed65ff90d1">
 </p>
 <p align="center">
   Fig 7.
@@ -357,21 +357,21 @@ Fig 6.
 <summary> Review Files after Design Prep and Run Synthesis </summary>
 
 <p align="center">
-<img width="781" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/d688e5cc-0d8c-47a5-8a98-4ec60a20933c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/ab0a7a46-251d-4402-b7d7-b17263875d52">
 </p>
 <p align="center">
   Fig 8.
 </p>
 
 <p align="center">
-<img width="869" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/c69a48e8-1d1a-447e-844d-a349b8f20c38">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/e7820d9a-68da-4876-9527-e84bc7d13323)">
 </p>
 <p align="center">
   Fig 9.
 </p>
 
 <p align="center">
-<img width="841" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bb4a57cb-a9a1-4ec4-9719-cbab4f6e3b7b">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/bdcea771-df24-49eb-93cb-0c3aaaca4a69">
 </p>
 <p align="center">
   Fig 10.
@@ -380,7 +380,7 @@ Fig 6.
 + `%run_synthesis`
 
 <p align="center">
-  <img width="716" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/fdde08ee-bab4-49ba-8c62-7597234aa04c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/bfc098c1-de00-437f-b20d-ed56aa070ab0">
 </p>
 <p align="center">
   Fig 11.
@@ -405,7 +405,7 @@ https://github.com/efabless/openlane2
   - the number of cells = 14876
 + The clock ratio is dff/cells = 0.108
 <p align="center">
-<img width="311" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/07f50ebb-7621-4f21-a697-d847c1cb4857">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/89a23d9c-5d2e-4239-a82a-8c2247807daf">
 </p>
 <p align="center">
   Fig 12.
@@ -416,7 +416,7 @@ https://github.com/efabless/openlane2
 `less picorv32a.synthesis.v`
 
 <p align="center">
-  <img width="809" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/f5017424-2fec-4eb6-b89c-1f42982afb80">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/f9e7ed4e-cd87-41ac-a1b9-345821d1e288">
 </p>
 <p align="center">
   Fig 13.
@@ -426,7 +426,7 @@ https://github.com/efabless/openlane2
 
 `less 1-yosys_4.stat.rpt`
 <p align="center">
-<img width="223" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/b92a2e88-2ad1-48e1-bb0f-1a972ff6d3cc">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/924a03f8-2d48-4b4b-91b0-a3731bd74ecd">
 </p>
 <p align="center">
   Fig 14.
@@ -447,7 +447,7 @@ https://github.com/efabless/openlane2
 + We can calculate the utilisation factor and the aspect ratio by the formulae given below:
 
 <p align="center">
-  <img width="227" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/34bdb376-7176-49e2-a063-f2a4e134c73b">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/b212b54a-4c93-411a-98a7-65145a1c9664">
 </p>
 <p align="center">
   Fig 1. Formulae
@@ -460,7 +460,7 @@ https://github.com/efabless/openlane2
 
 + Consider a combinational logic which is converted into netlist
 <p align="center">
-  <img width="450" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/32a474db-664f-4c2a-a84b-f7274c2470b4">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/9f25f762-ba2e-48a7-9476-357cb0c23608">
 </p>
 <p align="center">
   Fig 2.
@@ -468,7 +468,7 @@ https://github.com/efabless/openlane2
 
 + Cut the circuit into two parts and separate them out.
 <p align="center">
-  <img width="530" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/47c738d0-e371-499d-9c5f-1128cdfbce4c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c58781f6-f971-4d8d-8a2e-e94c182bcace">
 </p>
 <p align="center">
   Fig 3.
@@ -476,7 +476,7 @@ https://github.com/efabless/openlane2
 
 + Extend the IO pins
 <p align="center">
-  <img width="287" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4cffdcd0-7b68-4396-bf39-9ffe31a7147c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/b5f27330-8e48-4493-b233-ac813a2b8f1d">
 </p>
 <p align="center">
   Fig 4.
@@ -484,7 +484,7 @@ https://github.com/efabless/openlane2
 
 + Black box the boxes
 <p align="center">
-<img width="278" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8e05e87b-e1e4-436f-842b-d348dbb2bdef">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/3a08d57d-fcc4-481b-a8a0-facd5550c7f9">
 </p>
 <p align="center">
   Fig 5.
@@ -492,7 +492,7 @@ https://github.com/efabless/openlane2
 
 + Separate the black boxes as two different IPs or modules
 <p align="center">
-<img width="426" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/85fe19b7-05c7-44df-a4f3-a5d3382b850f">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/e219041d-3e27-44aa-9b9e-f8f1cdd240d0">
 </p>
 <p align="center">
   Fig 6.
@@ -513,7 +513,7 @@ https://github.com/efabless/openlane2
 + When a circuit is powered, especially in digital circuits where there are rapid transitions between logic states, the current demand can change rapidly. Decoupling capacitors are placed close to the power pins of ICs, such as microcontrollers or processors, to counteract these rapid changes.
 
 <p align="center">
-  <img width="413" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/366cbede-bc0a-4a6d-bcc6-f63434adfff7">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c7666b5f-c129-47e9-abf9-46943e84ed87">
 </p>
 <p align="center">
   Fig 7.
@@ -527,7 +527,7 @@ https://github.com/efabless/openlane2
 + Effective power planning is essential in modern electronics to meet performance, power consumption, and thermal constraints. 
 
 <p align="center">
-  <img width="518" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/a173fa1b-ecf1-49a6-9389-bd8d74cdd340">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/7b5f719d-0bdc-4e84-8cba-29fcd98c38e8">
 </p>
 <p align="center">
   Fig 8.
@@ -544,14 +544,14 @@ https://github.com/efabless/openlane2
 + Proper pin placement is essential to ensure that the IC can interface with the external world effectively, meet performance requirements, and adhere to manufacturability constraints.
 
 <p align="center">
-  <img width="342" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1f7b19e7-addd-4188-b7d7-98bdc9b9a50e">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/63f632d1-32ea-413a-9ac8-80c8d2a7c21c">
 </p>
 <p align="center">
   Fig 9. Circuit Example
 </p>
 
 <p align="center">
-  <img width="419" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/aab16f1d-6deb-4619-8a14-4311f916b872">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/182554b9-ece9-45a4-990b-a7c85b15b6cc">
 </p>
 <p align="center">
   Fig 10. Pin placement for the Circuit
@@ -562,7 +562,7 @@ https://github.com/efabless/openlane2
 + Blockage constraints are used to restrict or reserve specific areas of the chip's layout for various purposes, such as accommodating specialized circuitry, ensuring signal integrity, or meeting manufacturing requirements.
 
 <p align="center">
-  <img width="446" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/07e33231-302b-47eb-a400-d7796c51adb8">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/ca1b51b5-4ca0-4887-bf05-c1e93a17dae8">
 </p>
 <p align="center">
   Fig 11. Logical Cell Placement Blockage for the Circuit
@@ -575,7 +575,7 @@ https://github.com/efabless/openlane2
 
 + `less floorplan.tcl`
 <p align="center">
-<img width="230" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/882a9fd5-5338-43f8-8395-0de6aec6669a">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/b8284f21-1b7f-42a1-af60-947c151e00e1">
 </p>
 <p align="center">
   Fig 12.
@@ -583,7 +583,7 @@ https://github.com/efabless/openlane2
 
 + `less config.tcl`
 <p align="center">
-<img width="780" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/906d421d-ef8f-4ed3-88eb-fea7e6911146">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/32719c8f-09cd-4d8d-91d5-c253df3e5f25">
 </p>
 <p align="center">
   Fig 13.
@@ -591,7 +591,7 @@ https://github.com/efabless/openlane2
 
 + `%run_floorplan`
 <p align="center">
-<img width="908" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/05a0ed9e-1673-4904-b7b5-69f2ed8a5e4c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/12bd1305-7c72-4865-b09b-c022edcd9086">
 </p>
 <p align="center">
   Fig 14.
@@ -603,28 +603,28 @@ https://github.com/efabless/openlane2
 <summary> Review Floorplan Files and Steps to View Floorplan </summary>
 
 <p align="center">
-<img width="886" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/85df9627-fb26-436c-9f23-6fc653fd564f">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/52b911b9-053e-46b9-985a-435fb955e98e">
 </p>
 <p align="center">
   Fig 15.
 </p>
 
 <p align="center">
-<img width="496" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/90a8e19b-9d4e-4894-81ca-13058b6d90ae">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/94d09044-636d-46b3-92d6-564e10db0932">
 </p>
 <p align="center">
   Fig 16.
 </p>
 
 <p align="center">
-<img width="910" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/068120f1-4d43-4de4-b33a-2d1fd7d773c0">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/04565729-7d17-4a01-9bd7-7d9c8c98eaa4">
 </p>
 <p align="center">
   Fig 17.
 </p>
 
 <p align="center">
-<img width="395" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/04010e78-508a-4a2f-a5aa-975688049236">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/80565e1e-ebaa-4c3a-a9ab-6d11441889b2">
 </p>
 <p align="center">
   Fig 18.
@@ -638,7 +638,7 @@ https://github.com/efabless/openlane2
  `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &`
 
 <p align="center">
-<img width="711" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/5cb06161-be66-4d66-a48b-447ff645608f">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/737f865e-5030-4a49-bddc-937703780559">
 </p>
 <p align="center">
   Fig 19.
@@ -646,7 +646,7 @@ https://github.com/efabless/openlane2
 
 + When viewed the horizontal metal layer
 <p align="center">
-<img width="734" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/88b24fe9-0b63-4cff-8630-b35be1ef1d8b">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/1200b783-3c8c-42fc-936b-5d6943f64554">
 </p>
 <p align="center">
   Fig 20.
@@ -654,7 +654,7 @@ https://github.com/efabless/openlane2
 
 + When viewed the vertical metal layer
 <p align="center">
-<img width="736" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/eb472d5a-269b-43cf-b97f-a8e8cfc62d07">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/070d2138-318e-4369-be63-43678bb30aa7">
 </p>
 <p align="center">
   Fig 21.
@@ -671,7 +671,7 @@ https://github.com/efabless/openlane2
 + This step involves associating the logical components and connections described in the netlist with physical components, such as gates, flip-flops, and interconnections, that will be used in the actual implementation.
 
 <p align="center">
-  <img width="584" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4778d23c-a1cf-4368-9993-bfc2c9a3cb78">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/838893d2-10be-4d4c-85e7-68f1c31711f5">
 </p>
 <p align="center">
   Fig 1.
@@ -685,7 +685,7 @@ https://github.com/efabless/openlane2
 + We need to estimate the wire length and capacitance, and based on that insert repeaters.
 
 <p align="center">
-  <img width="406" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/dbe73423-c63e-440d-88ce-ac2d9c72a11c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/bc74fddd-900d-42f6-97bc-6fa025be075d">
 </p>
 <p align="center">
   Fig 2.
@@ -708,7 +708,7 @@ https://github.com/efabless/openlane2
 
 + `%run_placement`
 <p align="center">
-<img width="320" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/2257f078-126d-4627-aafa-3343a07709bf">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/2e08eae4-9fd0-4dbc-b58d-47b42776bd0f">
 </p>
 <p align="center">
   Fig 3.
@@ -717,7 +717,7 @@ https://github.com/efabless/openlane2
 +`magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &`
 
 <p align="center">
-<img width="695" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/51f8adf9-436f-49c1-ab07-6eb3467e0dd4">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/f087e8d0-823b-44f5-bcff-8bed3e912147">
 </p>
 <p align="center">
 Fig 4.
@@ -725,13 +725,13 @@ Fig 4.
 
 </details>
 
-## Cell Design and Characterization Flows
+## Cell Design and Characterization Flow
 <details>
 <summary> Inputs for Cell Design Flow </summary> 
 
 **Cell Design Flow**
 <p align="center">
-  <img width="189" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/97b725b8-ee8d-42fa-9659-17d2e014343d">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/09ca2b78-3092-40e3-9dd6-ec8d7a562328">
 </p>
 <p align="center">
   Fig 1.
@@ -797,14 +797,14 @@ Fig 4.
 <summary> Timing Threshold Definitions </summary>
 
 <p align="center">
-  <img width="520" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/fbb86265-278e-4ece-b4b9-12184a5fb7e5">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c631dd94-cd9c-46b2-8253-1cff40ee3185">
 </p>
 <p align="center">
   Fig 1.
 </p>
 
 <p align="center">
-  <img width="289" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/f88636f1-87c1-4eae-ba89-736ea5b5bd9f">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/89374011-b466-4be8-965d-e225475942df">
 </p>
 <p align="center">
   Fig 2.
@@ -851,7 +851,7 @@ Fig 4.
   `% run_floorplan`
 
 <p align="center">
-<img width="371" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/19090a7e-cfae-4fa4-9660-3dbc2adc7ddb">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c21d74a4-f86f-4740-b1de-5c86ddf13c98">
 </p>
 <p align="center">
   Fig 1.
@@ -871,7 +871,7 @@ Fig 4.
 + Name nodes
 
 <p align="center">
-<img width="259" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/46e02f1a-2708-4ca0-956f-83bbd08c7c92">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/9294f420-89a7-4967-b9b0-b68cd3866d30">
 </p>
 <p align="center">
   Fig 2.
@@ -912,7 +912,7 @@ Vin in 0 2.5
  - `plot out vs in`
 
 <p align="center">
-<img width="364" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8a5eb330-8c2b-4675-a977-257d343c8db3">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/5f91154a-3240-462f-a203-2611a4cb7567">
 </p>
 <p align="center">
 Fig 3.
@@ -938,7 +938,7 @@ Fig 3.
 + `git clone https://github.com/nickson-jose/vsdstdcelldesign.git`
 
 <p align="center">
-<img width="661" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/c0a4f88c-51c3-48d6-84a0-10c295b035be">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/7b70ef15-c024-401e-96d8-02a69ee0d529">
 </p>
 <p align="center">
   Fig 4.
@@ -947,7 +947,7 @@ Fig 3.
 + ` cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign`
 
 <p align="center">
-<img width="901" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4b789488-6dd8-4631-b6aa-45a8707f9c8d">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/888eeee8-74d4-484f-be98-f3936825826b">
 </p>
 <p align="center">
   Fig 5.
@@ -956,7 +956,7 @@ Fig 3.
 + We can see that the tech file is added.
 
 <p align="center">
-<img width="669" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/799e1d19-41ad-49ba-87c4-4d2d88d574c9">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/cf8d6d78-636c-480e-99d8-fb00762c55d8">
 </p>
 <p align="center">
 Fig 6.
@@ -1066,7 +1066,7 @@ Fig 6.
 + Deposit a layer of Si3N4 that acts as dielectric to protect the chip.
 
 <p align="center">
-  <img width="413" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6c433da2-3e8c-4072-9abe-576e442ea492">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/b826eb8f-fadb-4e90-9b87-1c06efb3a209">
 </p>
 
 </details>
@@ -1077,7 +1077,7 @@ Fig 6.
 + `magic -T sky130A.tech sky130_inv.mag &`
 
 <p align="center">
-<img width="719" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/c75dc309-03ef-4b5b-968a-62d4438b1943">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/1bd98bea-8121-4766-bcc2-b4ab0e4d20dc">
 </p>
 <p align="center">
 Fig 7.
@@ -1086,7 +1086,7 @@ Fig 7.
 + Click on the component and type `what` in the tkcon window.
 
 <p align="center">
-<img width="648" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/995400e6-dbb6-4940-beb1-4581d7415656">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c86c28b8-e10e-4962-869e-7f2c07a21768">
 </p>
 <p align="center">
 Fig 8.
@@ -1099,7 +1099,7 @@ Fig 8.
 
 + DRC errors in magic will be highlighted with white dotted lines.
 <p align="center">
-<img width="541" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/25877323-e6ff-4289-83cb-0159ef9e07ec">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/ce4e3ed8-4a63-460c-b3d9-0c015a9e15ad">
 </p>
 <p align="center">
   Fig 9.
@@ -1109,7 +1109,7 @@ Fig 8.
 + It will be displayed on the tkcon window.
 
 <p align="center">
-<img width="551" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/3fb71982-e469-424c-a463-3b53d561a846">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/def561f5-1cfb-44b1-89ba-c3a5f1b1e049">
 </p>
 <p align="center">
   Fig 10.
@@ -1122,7 +1122,7 @@ Fig 8.
 + cthresh and rthresh are used to extract all parasatic capacitances.
 
 <p align="center">
-<img width="589" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8ed214bb-d45a-417b-991c-520fb5bf34ea">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/92bc0ea1-01e6-467e-998a-f423c1d7c9e2">
 </p>
 <p align="center">
   Fig 11.
@@ -1131,7 +1131,7 @@ Fig 8.
 + We can see that the spice file is created in the folder.
 
 <p align="center">
-<img width="551" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1262ad1d-1591-4769-8eda-56d2ddd0e60e">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/59e04416-97da-451a-b64c-aab7bcbd15c9">
 </p>
 <p align="center">
   Fig 12.
@@ -1140,7 +1140,7 @@ Fig 8.
 + Spice File
 
 <p align="center">
-<img width="622" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1c8795c8-5704-4b4e-be02-7b89d538e4d3">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/2fde3d85-45bc-4b10-9947-b6a12ba3ebf2">
 </p>
 <p align="center">
 Fig 13.
@@ -1154,7 +1154,7 @@ Fig 13.
 
 + Grid size.
 <p align="center">
-<img width="620" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bc81ff12-1b6a-4c89-bc89-63cbd3e6be74">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/1574f104-b68d-4148-a2b3-f4a9e194f841">
 </p>
 <p align="center">
   Fig 1.
@@ -1162,7 +1162,7 @@ Fig 13.
 
 + We modified the spice file.
 <p align="center">
-<img width="476" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/76803aae-5b91-478a-b4ca-a5789c5bd6e9">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/55a36046-9f13-441d-83a2-5cd4502285fd">
 </p>
 <p align="center">
   Fig 2.
@@ -1172,7 +1172,7 @@ Fig 13.
  - `plot y vs time a`
 
 <p align="center">
-<img width="881" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/a50792a4-3ac7-421f-9d19-2952bdc69bf0">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/88f4fcd8-1f21-496a-a413-7f36ddf6e103">
 </p>
 <p align="center">
   Fig 3.
@@ -1208,7 +1208,7 @@ Fig 13.
 + `wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz`
 
 <p align="center">
-<img width="758" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/abd377f1-d5df-4639-bbe6-7a5237bc1f97">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/1b815275-23c2-4cfb-b7c0-6599995f2268">
 </p>
 <p align="center">
   Fig 4.
@@ -1225,7 +1225,7 @@ Fig 13.
 + Go to files then open `met3.mag` file.
 
 <p align="center">
-<img width="835" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ba236cb5-4769-4e81-a801-0467d545f2fa">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/e228aa69-08a9-44d3-b868-6bcd6a17131f">
 </p>
 <p align="center">
   Fig 5.
@@ -1235,7 +1235,7 @@ Fig 13.
 + Type `drc why` in tkcon.
 
 <p align="center">
-<img width="770" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ae1e9b82-8b02-48ed-be75-10ab6b43b68e">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/16e610af-73a8-4cf3-b1b6-455c849112e5">
 </p>
 <p align="center">
   Fig 6.
@@ -1245,7 +1245,7 @@ Fig 13.
 +  Type  `cif see VIA2` in tkcon prompt.
 
 <p align="center">
-<img width="726" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/13f6db17-0d5c-48cb-95c7-6221f5a7089b">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/4a369374-92c5-4a00-89da-047b90f5bd20">
 </p>
 <p align="center">
   Fig 7.
@@ -1259,14 +1259,14 @@ Fig 13.
 + Type `load poly` in the tkon prompt.
 
 <p align="center">
-<img width="735" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1d4ac890-5bbd-4630-b124-a23f795baa04">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/f6c21ff0-586b-43c6-8954-94508d515a51">
 </p>
 <p align="center">
   Fig 8.
 </p>
 
 <p align="center">
-<img width="182" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/cf6d4ecd-44c1-4c5b-86ec-1653d7a3d62b">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/e3859ad5-40f7-4765-9bdf-39ed5f6f85ed">
 </p>
 <p align="center">
   Fig 9.
@@ -1274,7 +1274,7 @@ Fig 13.
 
 + The error is:
 <p align="center">
-<img width="611" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1d709337-9601-4541-bda2-4cce6d787d17">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/1ac4feda-5b98-4611-8b0b-7b249f8d08c0">
 </p>
 <p align="center">
   Fig 10.
@@ -1282,14 +1282,14 @@ Fig 13.
 
 + To fix the error open the sky130A.tech file using a editor and search for poly.9 and make the changes.
 <p align="center">
-<img width="662" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/32d10f95-bec7-4278-a870-5bac048f7c29">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c86320cb-1129-41ea-b21b-91ce478ee05d">
 </p>
 <p align="center">
   Fig 11.
 </p>
 
 <p align="center">
-<img width="496" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/384efd39-5077-4bfa-943a-d12b10be7536">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/67deac9d-52b4-4e23-99e4-3c4e3a3ec537">
 </p>
 <p align="center">
   Fig 12.
@@ -1300,7 +1300,7 @@ Fig 13.
 + We can see that the error is fixed.
 
 <p align="center">
-<img width="356" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bf3227a0-056e-499f-91d6-e31d230fd23d">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/fdf5f776-c85e-4f04-badf-c8bf8c376d40">
 </p>
 <p align="center">
   Fig 13.
@@ -1319,7 +1319,7 @@ Fig 13.
   - `cif see dnwell_missing`
 
 <p align="center">
-<img width="891" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/300cf7b8-302e-42a8-8340-3ba25163e1bd">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/e66c758d-9371-405a-a6a7-e924413640a0">
 </p>
 <p align="center">
 Fig 14.
@@ -1328,7 +1328,7 @@ Fig 14.
 + To find missing or incorrect rules and fix them.
 
 <p align="center">
-<img width="403" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4dc02e55-9192-45b2-bac7-2431441cee34">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/0bb66ad5-861e-4ce9-9200-be32a9d125f7">
 </p>
 <p align="center">
 Fig 15.
@@ -1337,7 +1337,7 @@ Fig 15.
 + Error is :
 
 <p align="center">
-<img width="611" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/7a002a41-51b8-4018-9d0a-7ee8195359fe">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/883e9e6d-a007-4ee1-acf6-9df7162f0dbf">
 </p>
 <p align="center">
 Fig 16.
@@ -1346,14 +1346,14 @@ Fig 16.
 + To fix the error open the sky130A.tech file using a editor.
 
 <p align="center">
-<img width="575" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ee2e7173-7af3-4906-8286-c5f0a1e34b82">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/8ea313aa-0453-497e-99cf-7c9b49dc4a46">
 </p>
 <p align="center">
 Fig 17.
 </p>
 
 <p align="center">
-<img width="506" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/823aceec-1182-44d1-8d85-ce98499da3e0">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/a2e0f91a-a789-4da3-88dd-8bbf085f91e5">
 </p>
 <p align="center">
 fig 18.
@@ -1363,14 +1363,14 @@ fig 18.
 + Type the command `drc check` for both normal and drc fast.
 
 <p align="center">
-<img width="760" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/eab2681e-e063-4d01-888d-2df4c2c84c65">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/bb763045-b750-4af2-9162-f4732b28e285">
 </p>
 <p align="center">
 Fig 19.
 </p>
 
 <p align="center">
-<img width="371" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/e6a0ce8b-3454-438f-a68c-2d613857623a">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/786b28f7-5453-4425-8a9b-85874172e6ec">
 </p>
 <p align="center">
 Fig 20.
@@ -1387,7 +1387,7 @@ Fig 20.
 + `less tracks.info`
 
 <p align="center">
-<img width="167" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/8289365c-c2c7-4a3e-99de-1889d106a431">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/2fad8e6b-76f5-4ff0-a18b-cb168f171c96">
 </p>
 <p align="center">
 Fig 1.
@@ -1400,7 +1400,7 @@ Fig 1.
 + Now we converge the grid definition in the layout to track definition.
 
 <p align="center">
-<img width="823" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/882256d8-28cc-46ee-8c63-2a798b87e6d8">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/1e93ec05-a647-4551-8a61-867174a9edab">
 </p>
 <p align="center">
 Fig 2.
@@ -1410,7 +1410,7 @@ Fig 2.
 + As we can see it encloses two full boxes and two halves of one box, totally making three boxes as indicated by the white line.
 
 <p align="center">
-<img width="678" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/381783f2-7ad4-4a01-9982-260a0ba61a67">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/0720772b-0c4c-4588-b8d7-3b75a4bb58bb">
 </p>
 <p align="center">
 Fig 3.
@@ -1425,7 +1425,7 @@ Fig 3.
 + This is to make our own .mag file.
 + `lef write` to make .lef file
 <p align="center">
-<img width="854" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6f2d7ace-30df-4e29-b786-b4269ec9385c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/0fb6ea6c-785f-4feb-b0a3-ce95f104fe15">
 </p>
 <p align="center">
 Fig 4.
@@ -1433,7 +1433,7 @@ Fig 4.
 
 + `less sky130_vsdinv.lef`.
 <p align="center">
-<img width="517" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/00eeb26b-21af-4ca8-b3db-395dd850477c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/d1007a1f-98b6-4b44-9342-769160d43026">
 </p>
 <p align="center">
 Fig 5.
@@ -1447,14 +1447,14 @@ Fig 5.
 + We copy the lef file and the libraries.
 
 <p align="center">
-<img width="905" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/d91ccfe2-057f-41a6-857e-7f011f2d0a63">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c98a4811-abc1-4fe1-a8c2-22de98ab741c">
 </p>
 <p align="center">
 Fig 6.
 </p>
 
 <p align="center">
-<img width="713" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/9b9901c4-f07d-4514-8016-87be96adfbd6">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/9ac3764a-543a-4e72-b755-149b1764eb68">
 </p>
 <p align="center">
 Fig 7.
@@ -1463,7 +1463,7 @@ Fig 7.
 + Next we modify the 'config.tcl' file in the picorv32a folder.
 
 <p align="center">
-<img width="866" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6c01a5df-2ae5-431d-9636-9c8762e1e94c">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/5341ec6d-66bf-47b9-b117-928f3bff1df9">
 </p>
 <p align="center">
 Fig 8.
@@ -1475,14 +1475,14 @@ Fig 8.
  - `add_lefs -src $lefs `
  - `run_synthesis`
 <p align="center">
-<img width="905" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/9b7bdfb2-9c0f-432b-84e0-9c7dd7a4c2a6">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/87221315-74de-4b7d-8e95-db5a621b598d">
 </p>
 <p align="center">
 Fig 9.
 </p>
 
 <p align="center">
-<img width="353" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/37319c15-7f05-4642-a2dd-ff5e9cb845f3">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/2e0fa894-ed3a-474e-b8fa-e6e23e0bc905">
 </p>
 <p align="center">
 Fig 10.
@@ -1490,29 +1490,10 @@ Fig 10.
 
 
 <p align="center">
-<img width="167" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/a09b259e-6bcf-42d0-97b9-4c4b8d0fe0bf">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/f59efbaa-cf5b-430e-aafd-b8839411b5a3">
 </p>
 <p align="center">
 Fig 11.
-</p>
-
-+ `%init_floorplan`
-+ `%run_placement`
-+ `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &`
-
-<p align="center">
-<img width="709" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/078de7cd-80c9-4001-b709-7c6d14a556cc">
-</p>
-<p align="center">
-Fig 12.
-</p>
-
-+ We can see that We have plugged in our custom cell in the OpenLANE flow.
-<p align="center">
-<img width="693" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/c5d78355-e056-4f0f-a2ad-393a7df6ae03">
-</p>
-<p align="center">
-Fig 13.
 </p>
 
 + VLSI engineers will obtain system specifications in the architecture design phase. These specifications will determine a required frequency of operation. To analyze a circuit's timing performance designers will use static timing analysis tools (STA). When referring to pre clock tree synthesis STA analysis we are mainly concerned with setup timing in regards to a launch clock. STA will report problems such as worst negative slack (WNS) and total negative slack (TNS). These refer to the worst path delay and total path delay in regards to our setup timing restraint. Fixing slack violations can be debugged through performing STA analysis with OpenSTA, which is integrated in the OpenLANE tool. To describe these constraints to tools such as In order to ensure correct operation of these tools two steps must be taken:
@@ -1577,7 +1558,7 @@ Fig 13.
 + The first one must be in the openlane directory
 + This file is known as the 'pre_sta.conf' file.
 <p align="center">
-<img width="908" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/f9ca3695-1128-4a3b-8d11-c50e27deab47">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/ef4dc5de-b4d8-4daa-b24b-cccc92892422">
 </p>
 <p align="center">
   Fig 1.
@@ -1586,14 +1567,14 @@ Fig 13.
 + The second is the my_base.sdc file.
 + This should be in the 'src/sky130' directory under the picorv32a directory.
 <p align="center">
-<img width="715" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/e19cfd30-3f5b-4cfd-b554-eea5649ac686">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/8f3d851d-0ca4-4b23-b832-74947d2d2a0f">
 </p>
 <p align="center">
   Fig 2.
 </p>
 
 <p align="center">
-<img width="649" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4739e25b-f179-492f-863d-ab208dbbbccc">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/f1752a7e-99cf-4d19-9db6-ecbf25a71e1b">
 </p>
 <p align="center">
   Fig 3.
@@ -1603,7 +1584,7 @@ Fig 13.
 + `sta pre_sta.conf`
 
 <p align="center">
-<img width="533" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1a027fbc-9465-46ea-a4a4-9c2f83cba62b">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/fd40565b-ac21-4a70-a5aa-e2119c578e85">
 </p>
 <p align="center">
   Fig 4.
@@ -1620,7 +1601,7 @@ Fig 13.
 + Then `run_synthesis`
 
 <p align="center">
-<img width="541" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bc32754a-dc6c-4651-a4c8-f6da5db4fd64">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/d5aa0045-2fd8-4feb-80b0-7a5131e65e74">
 </p>
 <p align="center">
   Fig 5.
@@ -1629,7 +1610,7 @@ Fig 13.
 + Since we have synthesised the core using our vsdinv cell too and as it got successfully synthesized, it should be visible in layout after `run_placement` stage which is followed after `run_floorplan` stage.
 
 <p align="center">
-<img width="725" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1e14c8f4-54bc-4723-8652-1db5258048e5">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/120370db-6dd6-4a5f-94aa-2790e3ea9555">
 </p>
 <p align="center">
   Fig 6.
@@ -1647,7 +1628,7 @@ Fig 13.
 + New .v is created.
 
 <p align="center">
-<img width="883" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/9ae4df75-3a0a-4ee0-b335-dd28dd4baa3e">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/56f2c27f-59e1-4609-bb92-538bfdc12a3d">
 </p>
 <p align="center">
   Fig 7.
@@ -1671,7 +1652,7 @@ Fig 13.
 + `read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc`
 
 <p align="center">
-<img width="763" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/477f4146-c8cb-440d-bffc-9087c4b2be7f">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/b154f855-0fbe-4474-a00e-018eea31e970">
 </p>
 <p align="center">
   Fig 8.
@@ -1681,14 +1662,14 @@ Fig 13.
 + `report_checks -path_delay min_max -format full_clock_expanded -digits 4`
 
 <p align="center">
-<img width="536" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/0359e82d-9757-4992-a5e4-e50706fe45c2">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/f9d97652-2a66-4da1-a0ac-86ee5b1b0d85">
 </p>
 <p align="center">
   Fig 9.
 </p>
 
 <p align="center">
-<img width="664" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/5803494c-a24e-4c1e-a72d-b36f61f25794">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/f9c6f227-2605-4981-923b-5b67d4d1884e">
 </p>
 <p align="center">
   Fig 10.
@@ -1697,14 +1678,14 @@ Fig 13.
 + We perform it again for a more accurate result.
 
 <p align="center">
-<img width="481" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/5bdb83b0-e614-4b62-a936-26a6de2f301a">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/0ef49445-3ca6-431f-ac45-e4e79ea4e362">
 </p>
 <p align="center">
   Fig 11.
 </p>
 
 <p align="center">
-<img width="496" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/69e32947-27d1-43d7-b0c1-9fa731180fee">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/57d4836d-4a2d-48cb-817b-3ef317043769">
 </p>
 <p align="center">
   Fig 12.
@@ -1718,7 +1699,7 @@ Fig 13.
 + `report_clock_skew -hold`
 
 <p align="center">
-<img width="216" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bc82d3ba-7733-41c6-8fdc-da1dfbfa8a1f">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/ae0f7352-156a-48bb-92b9-729c3491ffba">
 </p>
 <p align="center">
   Fig 13.
@@ -1727,7 +1708,7 @@ Fig 13.
 + `report_clock_skew -setup`
 
 <p align="center">
-<img width="273" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6eac4399-094b-458e-bf3e-1346965d4668">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/abd5c628-ad24-4f32-a426-1973943f1dfc">
 </p>
 <p align="center">
 Fig 14.
@@ -1782,14 +1763,14 @@ Lambda rules are process-specific design rules used in semiconductor manufacturi
 + After generating our clock tree network and verifying post routing STA checks we are ready to generate the power distribution network `gen_pdn` in OpenLANE:
 
 <p align="center">
-<img width="649" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/e1ce1d33-1b5a-4140-9edf-39d33130198d">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/8e498aeb-8efe-42bc-a1c9-a85f14be957c">
 </p>
 <p align="center">
   Fig 1.
 </p>
 
 <p align="center">
-<img width="503" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ac918898-3556-4737-b23c-5d299bbb4392">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/7dde0890-0e24-4b1d-ac2b-153324d32d5d">
 </p>
 <p align="center">
   fig 2.
@@ -1803,7 +1784,7 @@ Lambda rules are process-specific design rules used in semiconductor manufacturi
 + We see that there is a change in the DEF.
 
 <p align="center">
-<img width="569" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/10725da7-4122-456e-b69c-31c8b4215ec3">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c39633c9-f35a-4333-b5ed-7db6e771bd70">
 </p>
 <p align="center">
   Fig 3.
@@ -1822,7 +1803,7 @@ Lambda rules are process-specific design rules used in semiconductor manufacturi
   `run_routing`
 
 <p align="center">
-<img width="433" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/d559ab2c-9d22-4bd8-aa5c-d0084a5f77c4">
+<img src="https://github.com/Veda1809/pes_pd/assets/142098395/c7dac1db-4bd8-4cf4-973a-8d8890a8fc40">
 </p>
 <p align="center">
   Fig 4.

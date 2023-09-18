@@ -26,6 +26,11 @@
 + [Clock Tree Synthesis TritonCTS and Signal Integrity](#clock-tree-synthesis-tritoncts-and-signal-integrity)
 + [Timing Analysis with Real Clocks using OpenSTA](#timing-analysis-with-real-clocks-using-opensta)
 
+## DAY 5
+**Final Steps for RTL2GDS**
++ [Routing and DRC](#routing-and-drc)
++ [Power Distribution Network and Routing](#power-distribution-network-and-routing)
+
 # Day-1
 ## How to Talk to Computers
 <details>
@@ -1464,12 +1469,12 @@ Fig 8.
 </p>
 
 + Open the OpenLANE interactive window and retrieve the 0.9 package.
- - ` prep -design picorv32a -tag 16-09_19-58 -overwrite`
+ - ` prep -design picorv32a -tag 14-09_10-42 -overwrite`
  - `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`
  - `add_lefs -src $lefs `
  - `run_synthesis`
 <p align="center">
-<img width="902" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/0b879804-d62c-4549-9c7d-df2dbc97ca3f">
+<img width="905" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/9b7bdfb2-9c0f-432b-84e0-9c7dd7a4c2a6">
 </p>
 <p align="center">
 Fig 9.
@@ -1482,13 +1487,31 @@ Fig 9.
 Fig 10.
 </p>
 
-+ There is slack, hence we need to reduce it.
 
 <p align="center">
 <img width="167" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/a09b259e-6bcf-42d0-97b9-4c4b8d0fe0bf">
 </p>
 <p align="center">
 Fig 11.
+</p>
+
++ `%init_floorplan`
++ `%run_placement`
++ `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &`
+
+<p align="center">
+<img width="709" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/078de7cd-80c9-4001-b709-7c6d14a556cc">
+</p>
+<p align="center">
+Fig 12.
+</p>
+
++ We can see that We have plugged in our custom cell in the OpenLANE flow.
+<p align="center">
+<img width="693" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/c5d78355-e056-4f0f-a2ad-393a7df6ae03">
+</p>
+<p align="center">
+Fig 13.
 </p>
 
 + VLSI engineers will obtain system specifications in the architecture design phase. These specifications will determine a required frequency of operation. To analyze a circuit's timing performance designers will use static timing analysis tools (STA). When referring to pre clock tree synthesis STA analysis we are mainly concerned with setup timing in regards to a launch clock. STA will report problems such as worst negative slack (WNS) and total negative slack (TNS). These refer to the worst path delay and total path delay in regards to our setup timing restraint. Fixing slack violations can be debugged through performing STA analysis with OpenSTA, which is integrated in the OpenLANE tool. To describe these constraints to tools such as In order to ensure correct operation of these tools two steps must be taken:
@@ -1546,3 +1569,245 @@ Fig 11.
 </details>
 
 ## Timing Analysis with Ideal Clocks using openSTA
+<details>
+<summary> Configure OpenSTA for Post-Synth Timing Analysis </summary>
+
++ We must create two files.
++ The first one must be in the openlane directory
++ This file is known as the 'pre_sta.conf' file.
+<p align="center">
+<img width="908" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/f9ca3695-1128-4a3b-8d11-c50e27deab47">
+</p>
+<p align="center">
+  Fig 1.
+</p>
+
++ The second is the my_base.sdc file.
++ This should be in the 'src/sky130' directory under the picorv32a directory.
+<p align="center">
+<img width="715" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/e19cfd30-3f5b-4cfd-b554-eea5649ac686">
+</p>
+<p align="center">
+  Fig 2.
+</p>
+
+<p align="center">
+<img width="649" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/4739e25b-f179-492f-863d-ab208dbbbccc">
+</p>
+<p align="center">
+  Fig 3.
+</p>
+
++ To run the timing analysis we type
++ `sta pre_sta.conf`
+
+<p align="center">
+<img width="533" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1a027fbc-9465-46ea-a4a4-9c2f83cba62b">
+</p>
+<p align="center">
+  Fig 4.
+</p>
+
++ There is a slack violation.
+</details>
+
+<details>
+<summary> Optimise synthesis </summary>
+
++ Setting MAX_FANOUT value to 4 reduces the slack violation.
++ `set ::env(SYNTH_MAX_FANOUT) 4`
++ Then `run_synthesis`
+
+<p align="center">
+<img width="541" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bc32754a-dc6c-4651-a4c8-f6da5db4fd64">
+</p>
+<p align="center">
+  Fig 5.
+</p>
+
++ Since we have synthesised the core using our vsdinv cell too and as it got successfully synthesized, it should be visible in layout after `run_placement` stage which is followed after `run_floorplan` stage.
+
+<p align="center">
+<img width="725" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/1e14c8f4-54bc-4723-8652-1db5258048e5">
+</p>
+<p align="center">
+  Fig 6.
+</p>
+
+</details>
+
+## Clock Tree Synthesis TritonCTS and Signal Integrity
+
+<details>
+<summary> CTS </summary>
+
++ To run CTS we need to type the command.
++ `run_cts`
++ New .v is created.
+
+<p align="center">
+<img width="883" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/9ae4df75-3a0a-4ee0-b335-dd28dd4baa3e">
+</p>
+<p align="center">
+  Fig 7.
+</p>
+
+</details>
+
+## Timing Analysis with Real CLocks using OpenSTA
+
+<details>
+<summary> Lab steps to analyse Timing with Real CLocks</summary>
+
++ `openroad`
++ `read_lef /openLANE_flow/designs/picorv32a/runs/16-09_19-58/tmp/merged.lef`
++ `read_def /openLANE_flow/designs/picorv32a/runs/16-09_19-58/results/cts/picorv32a.cts.def`
++ `write_db pico_cts.db`
++ `read_db pico_cts.db`
++ `read_verilog /openLANE_flow/designs/picorv32a/runs/16-09_19-58/results/synthesis/picorv32a.synthesis_cts.v`
++ `read_liberty -max $::env(LIB_SLOWEST)`
++ `read_liberty -max $::env(LIB_FASTEST)`
++ `read_sdc /openLANE_flow/designs/picorv32a/src/sky130/my_base.sdc`
+
+<p align="center">
+<img width="763" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/477f4146-c8cb-440d-bffc-9087c4b2be7f">
+</p>
+<p align="center">
+  Fig 8.
+</p>
+
++ `set_propagated_clock [all_clocks]`
++ `report_checks -path_delay min_max -format full_clock_expanded -digits 4`
+
+<p align="center">
+<img width="536" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/0359e82d-9757-4992-a5e4-e50706fe45c2">
+</p>
+<p align="center">
+  Fig 9.
+</p>
+
+<p align="center">
+<img width="664" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/5803494c-a24e-4c1e-a72d-b36f61f25794">
+</p>
+<p align="center">
+  Fig 10.
+</p>
+
++ We perform it again for a more accurate result.
+
+<p align="center">
+<img width="481" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/5bdb83b0-e614-4b62-a936-26a6de2f301a">
+</p>
+<p align="center">
+  Fig 11.
+</p>
+
+<p align="center">
+<img width="496" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/69e32947-27d1-43d7-b0c1-9fa731180fee">
+</p>
+<p align="center">
+  Fig 12.
+</p>
+
+</details>
+
+<details>
+<summary> Lab steps to Observe Setup and Hold Timing </summary>
+
++ `report_clock_skew -hold`
+
+<p align="center">
+<img width="216" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/bc82d3ba-7733-41c6-8fdc-da1dfbfa8a1f">
+</p>
+<p align="center">
+  Fig 13.
+</p>
+
++ `report_clock_skew -setup`
+
+<p align="center">
+<img width="273" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/6eac4399-094b-458e-bf3e-1346965d4668">
+</p>
+<p align="center">
+Fig 14.
+</p>
+
+</details>
+
+# Day-5
+## Routing and DRC
+<details>
+<summary> Maze routing </summary>
+
++ Maze routing is a method used in electronic design automation (EDA) and integrated circuit (IC) design to determine efficient paths for interconnecting various components, such as logic gates, on a chip's layout. The goal is to find a path through a maze-like grid of obstacles while optimizing for factors like wire length, signal delay, and area utilization.
+
++ Lee's algorithm, also known as Lee's breadth-first search (BFS) algorithm, is a graph traversal and pathfinding algorithm that is commonly used in maze routing, maze solving, and other grid-based problems. Named after its creator, C. Y. Lee, the algorithm is particularly useful for finding the shortest path between two points in a grid while exploring the grid layer by layer.
+
+</details>
+
+<details>
+<summary> DRC </summary>
+  
+Lambda rules are process-specific design rules used in semiconductor manufacturing to ensure that integrated circuit (IC) layouts adhere to the capabilities and constraints of a particular semiconductor process. These rules are expressed in terms of lambda (λ), a normalized unit of measurement relative to the process technology. Lambda rules can vary between semiconductor foundries and process nodes, but they typically cover various aspects of IC design. Here's a list of common lambda rules and design considerations:
+
++ Minimum Feature Size: Specifies the minimum allowed width and spacing for features such as transistors, metal tracks, and vias, often expressed as multiples of λ.
++ Aspect Ratio: Defines the acceptable aspect ratio (width-to-height ratio) for rectangular structures, ensuring manufacturability.
++ Metal Layer Constraints: Specifies minimum metal track widths, metal-to-metal spacings, and via sizes on metal layers.
++ Poly Pitch: Defines the minimum pitch (spacing between features) for the poly-silicon (poly) layer, which affects the size of transistors and gates.
++ Active Area Constraints: Specifies minimum active area dimensions, ensuring that transistors meet process requirements.
++ Well and Substrate Taps: Covers the placement and size of well and substrate taps for connecting to power and ground planes.
++ Gate Length: Specifies the minimum gate length for transistors, affecting their performance characteristics.
++ Contact and Via Rules: Defines the minimum size and spacing of contacts and vias used to connect different layers in the IC.
++ Local Interconnects: Provides rules for local interconnects, which are used for routing within a cell or macro.
++ Minimum Metal to Active Spacing: Sets the minimum separation between metal tracks and active areas.
++ Minimum Metal to Contact Spacing: Specifies the minimum distance between metal tracks and contacts.
++ Edge Exclusion Zones: Defines exclusion zones near the chip's edge, where certain design elements are not allowed.
++ Density Rules: Enforces limits on the density of features in different regions of the chip to ensure proper manufacturing and avoid over-congestion.
++ Well Proximity Rules: Governs the proximity of different well types (e.g., n-well and p-well) to prevent undesirable interactions.
++ Metal Layer Ordering: Specifies the order in which metal layers should be used in the design hierarchy.
++ Metal Filling: Addresses requirements for metal fill patterns to ensure planarity and manufacturability.
++ Antenna Rules: Addresses the issue of charge buildup (antenna effect) during manufacturing, providing guidelines for mitigating this effect.
++ Variation-Aware Rules: Accounts for process variations, statistical timing, and other variations in critical design rules.
++ Electromigration Constraints: Specifies limits on current densities to prevent electromigration issues in metal tracks.
++ Supply Voltage Constraints: Sets design guidelines for supply voltage levels and power distribution.
+  
+</details>
+
+## Power Distribution Network and Routing
+
+<details>
+<summary> Power Distribution Network </summary>
+
++ After generating our clock tree network and verifying post routing STA checks we are ready to generate the power distribution network `gen_pdn` in OpenLANE:
++ The PDN feature within OpenLANE will create:
+   - Power ring global to the entire core
+   - Power halo local to any preplaced cells
+   - Power straps to bring power into the center of the chip
+   - Power rails for the standard cells
++ We see that there is a change in the DEF.
+  
+</details>
+
+<details>
+<summary> Global and Detailed Routing </summary>
+
++ OpenLANE uses TritonRoute as the routing engine for physical implementations of designs. Routing consists of two stages:
+   - Global Routing - Routing guides are generated for interconnects on our netlist defining what layers, and where on the chip each of the nets will be reputed.
+   - Detailed Routing - Metal traces are iteratively laid across the routing guides to physically implement the routing guides.
+
++ To run routing in OpenLANE:
+  `run_routing`
+
++ If DRC errors persist after routing the user has two options:
+  - Re-run routing with higher QoR settings.
+  - Manually fix DRC errors specific in tritonRoute.drc file.
+  
+</details>
+
+<details>
+<summary> SPEF Extraction </summary>
+
++ After routing has been completed interconnect parasitics can be extracted to perform sign-off post-route STA analysis. The parasitics are extracted into a SPEF file.
++ The SPEF extractor is not included within OpenLANE as of now.
+
+</details>

@@ -1781,9 +1781,19 @@ Lambda rules are process-specific design rules used in semiconductor manufacturi
 
 + After generating our clock tree network and verifying post routing STA checks we are ready to generate the power distribution network `gen_pdn` in OpenLANE:
 
+<p align="center">
 <img width="649" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/e1ce1d33-1b5a-4140-9edf-39d33130198d">
+</p>
+<p align="center">
+  Fig 1.
+</p>
 
+<p align="center">
 <img width="503" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/ac918898-3556-4737-b23c-5d299bbb4392">
+</p>
+<p align="center">
+  fig 2.
+</p>
 
 + The PDN feature within OpenLANE will create:
    - Power ring global to the entire core
@@ -1796,7 +1806,7 @@ Lambda rules are process-specific design rules used in semiconductor manufacturi
 <img width="569" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/10725da7-4122-456e-b69c-31c8b4215ec3">
 </p>
 <p align="center">
-  Fig 1.
+  Fig 3.
 </p>
 
 </details>
@@ -1815,7 +1825,7 @@ Lambda rules are process-specific design rules used in semiconductor manufacturi
 <img width="433" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/d559ab2c-9d22-4bd8-aa5c-d0084a5f77c4">
 </p>
 <p align="center">
-  Fig 2.
+  Fig 4.
 </p>
 
 + If DRC errors persist after routing the user has two options:

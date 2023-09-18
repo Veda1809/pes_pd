@@ -1469,7 +1469,7 @@ Fig 8.
 </p>
 
 + Open the OpenLANE interactive window and retrieve the 0.9 package.
- - ` prep -design picorv32a -tag 14-09_10-42 -overwrite`
+ - `prep -design picorv32a -tag 14-09_10-42 -overwrite`
  - `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`
  - `add_lefs -src $lefs `
  - `run_synthesis`
@@ -1660,14 +1660,14 @@ Fig 13.
 <summary> Lab steps to analyse Timing with Real CLocks</summary>
 
 + `openroad`
-+ `read_lef /openLANE_flow/designs/picorv32a/runs/16-09_19-58/tmp/merged.lef`
-+ `read_def /openLANE_flow/designs/picorv32a/runs/16-09_19-58/results/cts/picorv32a.cts.def`
++ `read_lef /openLANE_flow/designs/picorv32a/runs/14-09_10-42/tmp/merged.lef`
++ `read_def /openLANE_flow/designs/picorv32a/runs/14-09_10-42/results/cts/picorv32a.cts.def`
 + `write_db pico_cts.db`
 + `read_db pico_cts.db`
-+ `read_verilog /openLANE_flow/designs/picorv32a/runs/16-09_19-58/results/synthesis/picorv32a.synthesis_cts.v`
++ `read_verilog /openLANE_flow/designs/picorv32a/runs/14-09_10-42/results/synthesis/picorv32a.synthesis_cts.v`
 + `read_liberty -max $::env(LIB_SLOWEST)`
 + `read_liberty -max $::env(LIB_FASTEST)`
-+ `read_sdc /openLANE_flow/designs/picorv32a/src/sky130/my_base.sdc`
++ `read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc`
 
 <p align="center">
 <img width="763" alt="image" src="https://github.com/Veda1809/pes_pd/assets/142098395/477f4146-c8cb-440d-bffc-9087c4b2be7f">
